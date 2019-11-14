@@ -1,0 +1,6 @@
+@import '../loading/loading.wxss';
+@import '../common.wxss';
+.sSize{
+    font-size: 24rpx;
+    margin-left: 12rpx;
+}

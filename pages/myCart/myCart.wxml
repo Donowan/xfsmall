@@ -1,0 +1,25 @@
+<wxs src="../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">购物车</view>
+</cu-custom>
+
+<!-- 购物车 -->
+<d-cart wx:if="{{!phoneNumberlDialog.show}}"
+    catchupdateCartHandle="updateCart" 
+    catcheditSpecificationHandle="editSpecification" 
+    myCartData="{{myCartData}}"
+    >
+</d-cart>
+
+<!-- 修改规格弹窗 -->
+<d-edit-commodity
+    wx:if="{{showModal}}"
+    goods_id="{{editData.goods_id}}"
+    editData="{{editData}}"
+    catchhideModalHandle="_hideModal" 
+    catchconfirmSpecificationHandle="_confirmSpecification"
+    bottomBar="confirm"
+    showStepper="{{false}}"
+    edit_sku_id="{{editData.edit_sku_id}}">
+</d-edit-commodity>

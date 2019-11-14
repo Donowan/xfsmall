@@ -1,0 +1,41 @@
+@import '/public/style/iconfont.wxss';
+/* 逆天的bug* */
+.topArea .flex,.topArea.flex{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.topArea .flexAround{
+    justify-content: space-around
+}
+.topArea .subTitle{
+    color: #ccc;
+}
+.topArea .container{
+    width:92%;
+}
+.topArea .mSize{
+    font-size: 30rpx;
+}
+.topArea .lSize{
+    font-size: 34rpx;
+}
+/* 顶部搜索样式 */
+.topArea{
+    height: 100rpx;
+    width: 100vw;
+}
+.topArea .topSearch{
+    height: 60rpx;
+    padding: 0 30rpx;
+    background: white;
+    /* border: 2rpx solid rgb(163, 162, 162); */
+    border: none;
+    border-radius: 50rpx;
+}
+.topArea .topSearch .mSize{
+    flex: 1;
+    letter-spacing:12rpx;
+    text-align: center
+}

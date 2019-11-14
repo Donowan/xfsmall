@@ -1,0 +1,15 @@
+@import '../common.wxss';
+.enter-my-cart{
+    position: fixed;
+    z-index: 99; 
+    border-radius: 40rpx 0 0 40rpx;
+    overflow: hidden;
+    right: 130rpx;
+    bottom: 0;
+    width: 130rpx; 
+    height: 60rpx;
+    transition: right 100ms linear; 
+}
+.enter-my-cart.active{
+    right:0rpx;
+}

@@ -1,0 +1,75 @@
+@import '../../../app.wxss';
+@import '../../../template//smallElement/smallElement.wxss';
+/* pages/index/commodityDetail/commodityDetail.wxss */
+
+.red {
+    color: #e42222 !important;
+}
+
+page {
+    background: #f1f1f1
+}
+
+.grey {
+    color: 666 !important;
+    font-size: 32rpx !important;
+}
+/* 轮播样式 */
+
+swiper {
+    height: 100vw;
+}
+
+
+.commodityTemplate {
+    width: 100%;
+    padding-top: 34rpx;
+    align-items: baseline;
+}
+.tag_icon{
+    display: inline-block;
+    width:126rpx;
+    height: 40rpx;
+    vertical-align: middle;
+}
+
+.ticket{
+    height: 120rpx;
+    margin-top: 20rpx;
+    background-color: #e42222;
+    border-radius: 10rpx;
+}
+.ticketContent{
+    margin-left: 15rpx;
+    border-radius: 5rpx;
+    height: 90rpx;
+}
+.ticketContent .absolute{
+    width: 15rpx;
+    height: 100%;
+}
+.ticketContent .absolute.left{
+    left: 0;
+    transform: translateX(-56%)
+}
+.ticketContent .absolute.right{
+    right: 0;
+    transform: translateX(56%)
+}
+/* .servicePromise{
+    height: 160rpx;
+} */
+.avatar{
+    width: 120rpx;
+    height:120rpx;
+    margin-right: 20rpx
+}
+
+/* 详情样式 */
+.detailPicture{
+    margin-top: 20rpx
+}
+.servicePromiseItem{
+    width:100%;
+    line-height: 45rpx
+}

@@ -1,0 +1,11 @@
+@import '../common.wxss';
+.loginBtn{
+    position: absolute;
+    top:28rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10rpx;
+    width: 190rpx;
+    height: 70rpx;
+    z-index: 2;
+}

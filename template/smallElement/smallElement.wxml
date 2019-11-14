@@ -1,0 +1,114 @@
+<wxs src="../../wxs/filter.wxs" module="filter" />
+
+<!-- 优惠券 -->
+<template name='coupon'>
+    <view class="coupon flex flexNowrap">
+        <view class="redBgColor padding whiteColor textOverOne" style="padding-right: 18rpx">券</view>
+        <view class="whiteBgColor padding couponValue relative orangeColor flex flexNowrap">
+            <view style="font-weight: 600">{{filter.KeepTwoDecimals(coupon)}}</view>元
+        </view>
+    </view>
+</template>
+
+<!-- 奖励 -->
+<template name='gain'>
+    <view class="coupon flex flexNowrap">
+        <view class="orangeBgColor padding whiteColor textOverOne" style="padding-right: 18rpx">奖励</view>
+        <view class="whiteBgColor padding couponValue relative orangeColor flex flexNowrap">
+            <view style="font-weight: 600">{{filter.KeepTwoDecimals(gain)}}</view>元
+        </view>
+    </view>
+</template>
+<!-- 分享按钮 -->
+<template name='shareBtn'>
+    <button class=" flex shareBtn " style="background:rgb(250,65,62)" open-type='share' data-price="{{filter.KeepTwoDecimals(price)}}" data-currentprice="{{filter.KeepTwoDecimals(currentPrice)}}" data-coupon="{{filter.KeepTwoDecimals(coupon)}}" data-goods_id="{{goods_id}}" data-title="{{title}}" data-rate="{{rate}}" data-link="{{commodityLink}}">
+        <view class="flex flexBaseLine">
+            <view class="share  mSize whiteColor flex">
+                <text class="donowan icongouwuche"></text>
+            </view>
+            <view class="mSize" style="margin-left: 15rpx;font-weight: 600">分享奖￥</view>
+            <view style="font-weight: 600;font-size: 30rpx">{{filter.KeepTwoDecimals(gain)}}</view>
+        </view>
+
+    </button>
+</template>
+<template name='noShareBtn'>
+    <button class="orangeBgColor flex shareBtn ">
+        <view class="flex flexBaseLine">
+            <view class="share  mSize whiteColor flex">
+                <text class="donowan icongouwuche"></text>
+            </view>
+            <view class="mSize" style="margin-left: 15rpx;font-weight: 600">分享奖￥</view>
+            <view style="font-weight: 600;font-size: 30rpx">{{filter.KeepTwoDecimals(gain)}}</view>
+        </view>
+
+    </button>
+</template>
+<template name="empty">
+    <view class="flex flexCol empty">
+        <view class="icon">
+            <image src='https://cdn.hssapp.com.cn/saas/searchEmpty.png'></image>
+        </view>
+        <view class="title mSize" style="margin-top: 30rpx">暂无更多...</view>
+    </view>
+</template>
+
+<!-- 评分星星模板 -->
+<template name="rate">
+    <view class="flex allAtars">
+        <view class="oneStar" wx:key="{{index}}" wx:for="{{array}}">
+            <image src="{{item.src}}"></image>
+        </view>
+    </view>
+</template>
+
+<!-- 评分版块 -->
+<template name="evaluate">
+    <view class="flex flexBetween" style="width: 100%;font-size: 20rpx" >
+        <view class="flex evaluateItem">
+            <view class="pinkColor ">描述评分:</view>
+           
+            <!-- <template is="rate" data="{{...filter.rate('1.4')}}"></template> -->
+            <view class="pinkColor  ">{{avgDesc/100}}</view>
+            <view class="blank"></view>
+            <view class="  whiteColor avg_icon">{{descTxt}}</view>
+        </view>
+        <view class="flex">
+            <view class="pinkColor ">物理评分:</view>
+            
+            <!-- <template is="rate" data="{{...filter.rate('1.4')}}"></template> -->
+            <view class="pinkColor  ">{{avgLgst/100}}</view>
+            <view class="blank"></view>
+            <view class="  whiteColor avg_icon">{{lgstTxt}}</view>
+        </view>
+        <view class="flex">
+            <view class="pinkColor ">服务评分:</view>
+            
+            <!-- <template is="rate" data="{{...filter.rate('1.4')}}"></template> -->
+            <view class="pinkColor  ">{{avgServ/100}}</view>
+            <view class="blank"></view>
+            <view class="  whiteColor avg_icon">{{servTxt}}</view>
+        </view>
+    </view>
+</template>
+
+ <!-- 服务项目 -->
+ <template name="service">
+    <view class="flex servicePromiseItem flexStart  sSize themeColor">
+        <view class="flex flexStart" style="width:33.3%"
+            wx:for="{{service_promise}}">
+            <view class="donowan orange iconcheck-circle sSize">{{item.type}}</view>
+        </view>
+    </view>
+ </template>
+
+
+ <!-- 店铺宝贝数量 -->
+ <template name="goodsNumber">
+    <view class="flex flexStart servicePromiseItem subTitle sSize" style="margin-bottom: 4rpx">
+        <view class="">店铺宝贝 :</view>
+        <view class="blank">
+        </view>
+        <view>{{totalGoods}} 件</view>
+    </view>
+ </template>

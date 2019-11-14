@@ -1,0 +1,8 @@
+.cartEmpty{
+    width:100vw;
+    height:50vw;
+}
+.cartEmpty .icon{
+    width:100vw;
+    height:20vw;
+}

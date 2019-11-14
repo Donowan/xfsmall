@@ -1,0 +1,47 @@
+
+button::after{
+    border: none;
+ }
+button{
+    border-radius: 40rpx;
+    margin: 0;
+    padding: 15rpx 25rpx;
+}
+.poster{
+    height: 100vh;
+    font-size: 26rpx;
+}
+.posterDialog{
+    background: rgba(0, 0, 0, 0.8);
+    /* height: 100vh; */
+    font-size: 26rpx;
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+.flexCol{
+    flex-direction: column;
+}
+.container{
+    width: 85vw;
+    height: 100%;
+}
+.shareButton{
+    justify-content: space-between;
+    width: 100%;
+}
+.shareButton button{
+    border-radius: 40rpx;
+    margin: 0;
+    padding: 20rpx 30rpx;
+}
+.orangeBgColor{
+    background: rgb(255,102,0)
+}
+.redBgColor{
+    background-color:rgb(255,0,10)
+}
+.whiteColor{
+    color: white
+}

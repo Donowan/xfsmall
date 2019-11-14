@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "d-special-search": "../../component/customComponent/specialSearch/specialSearch"
+  }
+}

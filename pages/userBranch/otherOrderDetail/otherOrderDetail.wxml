@@ -1,0 +1,82 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">订单详情</view>
+</cu-custom>
+
+<view class="inComeCard flex flexCol  flexNowrap whiteBgColor orangeColor">
+    <view class="subTitle">订单佣金（元）</view>
+    <view class="flex ">
+        <view class="text-price incomePrice">
+            80.00
+        </view>
+    </view>
+</view>
+
+<!-- 订单列表 -->
+<view class="flex whiteBgColor" style="padding: 10rpx 0;margin-top: 10rpx">
+    <view class="flex container">
+        <view class="w100" style="margin: 10rpx 0" wx:for="{{orderList}}">
+            <van-card num="{{item.count}}" price="{{filter.KeepTwoDecimals(item.price)}}" desc="{{item.descript}}"
+                title="{{item.title}}" thumb="{{item.image}}" />
+        </view>
+    </view>
+</view>
+
+<view class="flex">
+    <view class="userList">
+        <view class="flex whiteBgColor dcell mSize" style="margin: 5rpx 0">
+            <view class="flex  container h100 flexNowrap">
+                <view class="padding-xx mSize subTitle textOverOne">订单金额</view>
+                <view class="padding-xx lSize  textOverOne flex flexEnd" style="flex:1;">100.00
+                </view>
+                <view class="xxlSize descript"></view>
+            </view>
+        </view>
+        <view class="flex whiteBgColor dcell mSize" style="margin: 5rpx 0">
+            <view class="flex  container h100 flexNowrap">
+                <view class="padding-xx mSize subTitle textOverOne">购买者</view>
+                <view class="padding-xx lSize  textOverOne flex flexEnd" style="flex:1;">Donowan
+                </view>
+                <view class="xxlSize descript"></view>
+            </view>
+        </view>
+        <view class="flex whiteBgColor dcell mSize" style="margin: 5rpx 0">
+            <view class="flex  container h100 flexNowrap">
+                <view class="padding-xx mSize subTitle textOverOne">订单状态</view>
+                <view class="padding-xx lSize  textOverOne flex flexEnd" style="flex:1;">已完成
+                </view>
+                <view class="xxlSize descript"></view>
+            </view>
+        </view>
+        <view class="flex whiteBgColor dcell mSize" style="margin: 5rpx 0">
+            <view class="flex  container h100 flexNowrap">
+                <view class="padding-xx mSize subTitle textOverOne">下单时间</view>
+                <view class="padding-xx lSize  textOverOne flex flexEnd" style="flex:1;">2020.10.21
+                </view>
+                <view class="xxlSize descript"></view>
+            </view>
+        </view>
+        <view class="flex whiteBgColor dcell mSize" style="margin: 5rpx 0">
+            <view class="flex  container h100 flexNowrap">
+                <view class="padding-xx mSize subTitle textOverOne">确认时间</view>
+                <view class="padding-xx lSize  textOverOne flex flexEnd" style="flex:1;">2021.10.2
+                </view>
+                <view class="xxlSize descript"></view>
+            </view>
+        </view>
+        <view class="flex whiteBgColor dcell mSize" style="margin: 5rpx 0">
+            <view class="flex  container h100 flexNowrap">
+                <view class="padding-xx mSize subTitle textOverOne">订单编号</view>
+                <view class="padding-xx lSize  textOverOne flex flexEnd" style="flex:1;">156455687265
+                </view>
+                <view class="xxlSize descript"></view>
+            </view>
+        </view>
+    </view>
+</view>
+<button open-type="contact" class="flex w100 dcell subTitle whiteBgColor margin-top">
+    <view class="donowan icondaipingjia xxlSize"></view>
+    <view class="blank"></view>
+    <view class="redColor sSize padding-xx">如对此订单有疑问?请联系在线客服</view>
+</button>

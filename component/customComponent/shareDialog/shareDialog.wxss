@@ -1,0 +1,8 @@
+@import '../../../app.wxss';
+.dcell{
+    height: 80rpx;
+    margin-bottom: 2rpx;
+}
+.greyBgColor :last-child{
+    margin-bottom: 0;
+}

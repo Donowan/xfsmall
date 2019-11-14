@@ -1,0 +1,19 @@
+.nav .cu-item{
+    height: 70rpx !important;
+    line-height: 70rpx !important;
+}
+.inComeCard{
+    height: 300rpx;
+}
+.incomePrice{
+    font-size: 90rpx;
+}
+.userList{
+    width: 100vw;
+}
+.withdrawalBtn{
+    width: 90vw;
+    border-radius: 15rpx;
+    overflow: hidden;
+    height: 90rpx;
+}

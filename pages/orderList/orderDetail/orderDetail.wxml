@@ -1,0 +1,56 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<import src="../../../template/element/element" />
+
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}" isBack="{{false}}" isCustom="{{true}}"></cu-custom>
+
+
+<!-- 收货地址 -->
+<template is='address' data="{{...orderDetail}}"></template>
+
+<!-- 分割线 -->
+<template is="splitLine"></template>
+
+<!-- 店铺名 -->
+<template is="shopName"></template>
+
+
+<!-- 订单列表 -->
+<view class="flex whiteBgColor" style="padding: 10rpx 0;margin-top: 10rpx">
+    <view class="flex container">
+        <view class="w100" style="margin: 10rpx 0" wx:for="{{orderDetail.saas_deal_spus}}">
+            <van-card num="{{item.count}}" price="{{filter.KeepTwoDecimals(item.price)}}" desc="{{item.sku_v_name}}"
+                title="{{item.spu_title}}" thumb="{{item.image}}" />
+        </view>
+    </view>
+</view>
+
+<!-- 配送方式 -->
+<template is="transMode"></template>
+
+<!-- 买家留言 -->
+<template is="evaluate" data="{{...orderDetail}}"></template>
+
+<!-- 商品金额及运费 -->
+<template is="totalPrice" data="{{...orderDetail}}"></template>
+
+<!-- 在线客服 -->
+<template is="concat"></template>
+
+<!-- 订单编号 -->
+<template is="orderNumber" data="{{...orderDetail}}"></template>
+
+<!-- 商品列表 -->
+<d-commodity-card loading="{{loading}}" complete="{{complete}}" listData="{{commodityData}}" title="更多精选商品"></d-commodity-card>
+
+<!-- 回到顶部 -->
+<d-back-top-btn bottom="100" visual="{{visual}}"></d-back-top-btn>
+
+<!--订单的不同状态操作 -->
+
+<!-- 占位 -->
+<view  style="margin-top:15rpx;height:85rpx" hidden="{{orderDetail.order_status==13 || orderDetail.order_status==13 || orderDetail.order_status==15}}"></view>
+<!-- 订单操作条 -->
+<view class="orderBar whiteBgColor" hidden="{{orderDetail.order_status==13 || orderDetail.order_status==13 || orderDetail.order_status==15}}">
+    <d-operation-order orderDetail="{{orderDetail}}"></d-operation-order>
+</view>

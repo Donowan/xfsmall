@@ -1,0 +1,57 @@
+<view class="flex " style="width: 100vw">
+    <view class="container flex flexCol flexNowrap orderStatus whiteBgColor">
+        <view class="flex  w100" catchtap="_enterToolList" data-status="0">
+            <!-- 我的订单 -->
+            <view class="flex  dcell mSize w100" style="border-bottom: 1rpx solid #f1f1f1">
+                <view class="flex container h100 flexNowrap">
+                    <view class="padding-x title mSize thin" style="width:160rpx">必备工具</view>
+                    <view class="sSize padding-xx  descript right" style="flex: 1">查看所有工具</view>
+                    <view class="donowan iconright xlSize descript"></view>
+                </view>
+            </view>
+        </view>
+        <view class="flex w100 descript sSize" style="margin: 25rpx 0 15rpx 0">
+            <view class="flex container flexStart">
+
+               
+                    <view class="flex flexCol flexBetween h100" style="padding: 20rpx 30rpx">
+                        <view class="donowan icondaifukuandingdan orangeColor bold" style="font-size: 42rpx"></view>
+                        <view>账单</view>
+                    </view>
+
+                    <view class="flex flexCol flexBetween h100" style="padding: 20rpx 30rpx">
+                        <view class="donowan icondaifukuandingdan orangeColor bold" style="font-size: 42rpx"></view>
+                        <view>账单</view>
+                    </view>
+                    <view class="flex flexCol flexBetween h100" style="padding: 20rpx 30rpx">
+                        <view class="donowan icondaifukuandingdan orangeColor bold" style="font-size: 42rpx"></view>
+                        <view>账单</view>
+                    </view>
+
+                    <view class="flex flexCol flexBetween h100" style="padding: 20rpx 30rpx">
+                        <view class="donowan icondaifukuandingdan orangeColor bold" style="font-size: 42rpx"></view>
+                        <view>账单</view>
+                    </view>
+                    <view class="flex flexCol flexBetween h100" style="padding: 20rpx 30rpx">
+                        <view class="donowan icondaifukuandingdan orangeColor bold" style="font-size: 42rpx"></view>
+                        <view>账单</view>
+                    </view>
+
+                    <view class="flex flexCol flexBetween h100" style="padding: 20rpx 30rpx">
+                        <view class="donowan icondaifukuandingdan orangeColor bold" style="font-size: 42rpx"></view>
+                        <view>账单</view>
+                    </view>
+                    <view class="flex flexCol flexBetween h100" style="padding: 20rpx 30rpx">
+                        <view class="donowan icondaifukuandingdan orangeColor bold" style="font-size: 42rpx"></view>
+                        <view>账单</view>
+                    </view>
+
+                    <view class="flex flexCol flexBetween h100" style="padding: 20rpx 30rpx">
+                        <view class="donowan icondaifukuandingdan orangeColor bold" style="font-size: 42rpx"></view>
+                        <view>账单</view>
+                    </view>
+               
+            </view>
+        </view>
+    </view>
+</view>

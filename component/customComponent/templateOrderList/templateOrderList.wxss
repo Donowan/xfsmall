@@ -1,0 +1,21 @@
+@import '../common.wxss';
+@import '../../../template/smallElement/smallElement.wxss';
+.orderList{
+    padding: 20rpx 15rpx;
+    width: 100%;
+    margin-top: 20rpx 
+}
+.orderList:last-child{
+    margin-bottom: 20rpx
+}
+.orderList,.orderList .rightContent{
+    height: 200rpx;
+}
+.orderList .icon{
+    width:200rpx;
+    height: 200rpx;
+    margin-right:15rpx;
+}
+.ssSize{
+    font-size: 18rpx;
+}

@@ -1,0 +1,12 @@
+@import '../../../app.wxss';
+.closeFont{
+    width: 50rpx;
+    position: absolute;
+    height: 50rpx;
+    border: 1rpx solid #ccc;
+    line-height: 40rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 40rpx;
+    z-index: 2000;
+}

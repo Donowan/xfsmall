@@ -1,0 +1,10 @@
+@import '../common.wxss';
+@import '../../../template/element/element.wxss';
+.evaluate .content{
+    width:calc(92vw / 3);
+    height:calc(92vw / 3);
+}
+.evaluate .icon{
+    width:90%;
+    height:90%;
+}

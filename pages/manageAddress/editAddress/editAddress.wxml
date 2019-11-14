@@ -1,0 +1,59 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}" isBack="{{true}}" isCustom="{{false}}">
+    <view slot="backText">编辑地址</view>
+</cu-custom>
+
+<!-- 表单 -->
+<form bindsubmit="saveAddress" bindreset="deleteAddress">
+    <view class="flex whiteBgColor dcell mSize" style="margin: 10rpx 0">
+        <view class="flex container h100 flexNowrap">
+            <view class="padding-x subTitle" style="width:160rpx">姓名</view>
+            <input placeholder="收货人姓名" name="name" class="descript" style="flex: 1" value="{{formData.name}}"></input>
+        </view>
+    </view>
+    <view class="flex whiteBgColor dcell mSize" style="margin: 10rpx 0">
+        <view class="flex container h100 flexNowrap">
+            <view class="padding-x subTitle" style="width:160rpx">电话</view>
+            <input placeholder="收货人手机号" name="tel" class="descript" style="flex: 1" value="{{formData.tel}}"></input>
+        </view>
+    </view>
+    <view class="flex whiteBgColor dcell mSize" style="margin: 10rpx 0">
+        <view class="flex container h100 flexNowrap">
+            <view class="padding-x subTitle" style="width:160rpx">地区</view>
+            <picker mode="region" catchchange="regionChange" class="h100 flex flexStart" name="area" value="{{formData.area}}" style="flex: 1">
+                <view class="descript w100" style="line-height: 70rpx;min-width: 65vw;">
+                    {{formData.area[0]==formData.area[1]?'':formData.area[0]+'/'}}{{formData.area[1]}}/{{formData.area[2]}}
+                </view>
+            </picker>
+            <view class="donowan iconright xlSize descript"></view>
+        </view>
+    </view>
+    <view class="flex whiteBgColor mSize" style="margin: 10rpx 0;height: 120rpx;">
+        <view class="flex container h100 flexNowrap">
+            <view class="padding-x subTitle" style="width:160rpx">详细地址</view>
+            <textarea value="{{formData.address}}" name="address" placeholder="街道门牌、楼层房间号等信息" maxlength="200" class="descript"
+                style="flex: 1;height: 60%;line-height: 30rpx"></textarea>
+        </view>
+    </view>
+
+    <!-- 保存地址 -->
+    <view class="flex w100" style="height: 80rpx;margin-top: 50rpx">
+        <view class="redBgColor container flex h100">
+            <button form-type="submit" class="lSize h100 whiteColor flex h100 w100">保存</button>
+        </view>    
+    </view>
+
+    <!-- 设为默认地址 -->
+    <view class="flex w100 " style="height: 80rpx;margin-top: 50rpx">
+        <view class="yellowBgColor container flex h100">
+            <button form-type="submit" data-type="stop" class="lSize h100 whiteColor flex h100 w100">设为默认地址并保存</button>
+        </view>
+    </view>
+
+    <!-- 删除地址 -->
+    <view class="flex w100 " style="height: 80rpx;margin-top: 50rpx">
+        <view class="whiteBgColor container flex h100">
+            <button form-type="reset" class="lSize h100 flex h100 w100">删除此收货地址</button>
+        </view>
+    </view>
+</form>

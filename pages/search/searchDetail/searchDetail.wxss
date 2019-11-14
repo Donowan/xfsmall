@@ -1,0 +1,4 @@
+@import '../search.wxss';
+page{
+    background: rgb(228, 235, 236) !important;
+}

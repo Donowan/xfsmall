@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "d-cell":"../../component/customComponent/cell/cell"
+  },
+  "enablePullDownRefresh": true
+}

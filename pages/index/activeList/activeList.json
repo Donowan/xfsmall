@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "d-commodity-card": "/component/customComponent/commodityCard/commodityCard"
+  }
+}

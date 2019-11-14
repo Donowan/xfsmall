@@ -1,0 +1,16 @@
+@import '../common.wxss';
+.goods-action{
+    position:fixed;
+    width: 100vw;
+    height: 90rpx;
+    bottom: 0;
+    left: 0;
+    background:#f10000;
+}
+.goods-action .icon{
+    width: 86rpx;
+    border-top: 1rpx solid #d3d3d3;
+}
+.button{
+    background: white !important;
+}

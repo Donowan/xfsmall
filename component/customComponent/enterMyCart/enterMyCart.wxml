@@ -1,0 +1,8 @@
+<movable-area style="position: fixed;right:0;width:0vw;height:60vh;bottom:130rpx;z-index: 999;">
+    <movable-view direction="all" style="width: 100%" y="10000" x="100">
+        <view class="flex {{show?'active':''}} flexNowrap enter-my-cart whiteColor orangeBgColor" catchtap="_enterMyCart" style="bottom:{{bottom}}rpx">
+            <view  class=" donowan icongouwuchezhengpin" style="font-size: 40rpx" bindtap="_enterMyCart"></view>
+            <view style="font-size:20rpx;margin-left: 8rpx">购物车</view>   
+        </view>
+    </movable-view>
+</movable-area>

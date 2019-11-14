@@ -1,0 +1,30 @@
+<!-- 店铺信息 -->
+<!-- <view class="flex sSize  whiteBgColor shop-bar">
+    <view class="flex flexNowrap container"  catchtap="_enterShop">
+        <view class="shop-icon">
+            <image
+                src='{{shopInfo.thumbnail}}'>
+            </image>
+        </view>
+        <view class="sunTitle lSize" style="flex: 1;padding: 10rpx 30rpx">{{shopInfo.shopName}}</view>
+        <view class="orangeColor enterShopBtn orangeTag">进店</view>
+    </view>
+    <view class="flex flexStart container service">
+        <view wx:for="{{shopInfo.service}}" class="donowan iconcheck-circle sSize" style="width: 20%;margin-bottom: 10rpx">{{item}}</view>
+    </view>
+</view> -->
+
+<!-- 商品详情 -->
+<view class="flex commodityBar whiteBgColor">
+    <view class="blank redBgColor"></view>
+    <view class="lSize  commodityBarTitle title">商品详情</view>
+    <view class="blank redBgColor"></view>
+</view>
+<view class="container" style="margin:0 auto">
+    <view class="descript sSize bold" style="padding-bottom:15rpx;text-indent: 2em">{{shopInfo.disctribe}}</view>
+</view>
+
+
+<view>
+    <image mode="widthFix" wx:for="{{shopInfo.details}}" data-url="{{item.image}}" catchtap="_previewDetail" src="{{item.image}}"></image>
+</view>

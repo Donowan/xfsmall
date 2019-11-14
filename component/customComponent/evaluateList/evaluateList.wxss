@@ -1,0 +1,8 @@
+@import '../common.wxss';
+@import '/template/element/element.wxss';
+.allAtars{
+    width: 30vw;
+}
+.oneStar{
+    width: 30rpx;height:30rpx
+}

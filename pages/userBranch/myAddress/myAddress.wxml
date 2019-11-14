@@ -1,0 +1,40 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">我的地址</view>
+</cu-custom>
+
+<!-- 地址列表 -->
+<view class="flex header whiteBgColor" wx:for="{{addressList}}" wx:key="{{item.id}}"
+    style="margin: 10rpx 0;">
+    <view class="flex container h100 flexNowrap">
+        <view class="padding-x subTitle flex flexCol  h100 flexNowrap" style="flex: 1">
+            <view class="bold mSize flex flexStart w100">
+                <view style="max-width: 60vw">{{item.name}}，</view>
+                <view>{{item.tel}}</view>
+                <view wx:if="{{item.isDefault==1}}" style="flex: 1" class="right redColor">默认地址</view>
+            </view>
+            <view style="font-size: 20rpx;margin-top: 10rpx" class="w100 left textOver descript textOverTwo">
+                收货地址:{{filter.join(item.area[0]==item.area[1]?[item.area[1],item.area[2]]:item.area,'')+item.address}}
+            </view>
+        </view>
+        <view data-address="{{item}}" class="flex donowan iconbianji xxlSize descript h100" catchtap="enterEditAddress"
+            style="padding: 0 0 0 30rpx"></view>
+    </view>
+</view>
+
+<!-- 地址为空的情况 -->
+<view wx:if="{{addressList.length==0 && addressList!=null}}">
+    <view class="cartEmpty flex flexAround">
+        <view class="icon">
+            <image src="{{baseImgUrl}}/cartEmpty.png" mode="aspectFit"></image>
+        </view>
+        <view class="flex flexCol">
+            <view class="title">地址是空的哦</view>
+            <view class="descript" style="margin-top:15rpx">请尝试添加一个地址吧~</view>
+        </view>
+    </view>
+</view>
+
+<view style="height: 85rpx"></view>
+<view class="redBgColor lSize whiteColor flex bottomBtn" catchtap="enterAddAdress">新增收货地址</view>

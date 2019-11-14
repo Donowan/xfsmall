@@ -1,0 +1,7 @@
+.successIcon{
+    font-size: 60rpx;
+    margin-right: 20rpx;
+}
+.topStatus{
+    height: 40vw;
+}

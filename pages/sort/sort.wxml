@@ -1,0 +1,58 @@
+<!-- 自定义顶部 -->
+<cu-custom full="{{true}}">
+
+</cu-custom>
+
+<!-- 轮播 -->
+<swiper class="screen-swiper round-dot " indicator-dots="true" circular="true" autoplay="true" interval="5000"
+	duration="500">
+	<swiper-item wx:for="{{swiper}}" data-goods_id="{{item.goods_id}}" catchtap="enterCommodityDetail">
+		<image src="{{item.commodityLink}}" mode='aspectFill'></image>
+	</swiper-item>
+</swiper>
+
+<!-- 分类 -->
+<view class="VerticalBox">
+	<scroll-view class="VerticalNav nav" scroll-y scroll-with-animation lower-threshold="80" scroll-top="{{VerticalNavTop}}"
+		style="height:calc(100vh - 377rpx)">
+		<view class="cu-item {{index==TabCur?'text-orange cur':''}}  " wx:for="{{list}}" wx:key bindtap='tabSelect'
+			data-id="{{index}}" data-sqlid="{{item.id}}">
+			{{item.name}}
+		</view>
+	</scroll-view>
+	<scroll-view class="VerticalMain" scroll-y scroll-with-animation bindscrolltolower="_lower" scroll-top="{{viewTop}}"
+		style="height:calc(100vh - 377rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+		<!-- bindscroll="VerticalMain" -->
+		<!-- <view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{index}}">
+			<view class='cu-bar solid-bottom bg-white'>
+				<view class='action'>
+					<text class='cuIcon-title text-orange' style="color:{{topColor}}"></text> {{item.name}} </view>
+			</view>
+
+			
+
+		</view> -->
+		<!-- 回到顶部 -->
+		<d-back-top-btn isScrollView="{{true}}" catchtoTopHandle="toTop" visual="{{visual}}" bottom="130"></d-back-top-btn>
+		<!-- 搜索商品为空的情况 -->
+		<view wx:if="{{commodityData.length==0 && commodityData!=null}}">
+			<view class="cartEmpty flex flexAround">
+				<view class="icon">
+					<image src="{{baseImgUrl}}/cartEmpty.png" mode="aspectFit"></image>
+				</view>
+				<view class="flex flexCol">
+					<view class="title">没有相关商品哦</view>
+					<view class="descript" style="margin-top:15rpx">请换个类目试试吧~</view>
+				</view>
+			</view>
+		</view>
+		<d-product-list showSale="{{false}}" custom-image="customImage"
+			custom-right-content-height="customRightContentHeight" type="{{options.type - 1}}"
+			shopIcon="{{options.type==2?'title_tag_icon':options.type==3?'title_tag_icon_jd':options.type==4?'title_tag_icon_vph':'title_tag_icon_sn'}}"
+			useSearch="{{true}}" productData="{{commodityData}}" catchawakenHandle="awaken" hideShopName="{{true}}">
+		</d-product-list>
+		<!-- 加载组件 -->
+		<d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>
+	</scroll-view>
+</view>
+<!-- <view class="redBgColor" style="height:40vh"></view> -->

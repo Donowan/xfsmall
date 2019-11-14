@@ -1,0 +1,44 @@
+@import "../../../template/smallElement/smallElement.wxss";
+@import '../common.wxss';
+/* @import '../../../template/smallElement/smallElement'; */
+.mSize{
+    font-size: 28rpx;
+}
+.commodityTemplate{
+    /* height: 280rpx; */
+    margin: 12rpx 0;
+    padding: 25rpx 20rpx 10rpx;
+    border-radius: 20rpx
+}
+.commodityTemplate .leftContent{
+    height: 200rpx;
+    width: 200rpx;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+.commodityTemplate .rightContent{
+    flex: 1;
+    padding: 0 15rpx ;
+    height: 200rpx;
+    /* align-content: space-between; */
+    /* border-bottom:1rpx solid #f1f1f1;  */
+}
+.commodityTemplate .rightContent>.container{
+    height: 100%;
+    align-content: space-between
+}
+.commodityTemplate .delete{
+    text-decoration: line-through
+}
+.gouwucheIcon{
+    position: absolute;
+    top: 60%;
+    right: 20rpx;
+    /* background-color: orange; */
+    /* border-radius: 70rpx;
+    padding: 2rpx 4rpx */
+}
+.fonsts{
+    font-size: 70rpx;
+    color: orange;
+}

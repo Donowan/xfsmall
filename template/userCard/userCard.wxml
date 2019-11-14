@@ -1,0 +1,47 @@
+<wxs src="../../wxs/filter.wxs" module="filter"></wxs>
+<template name="userCard">
+    <view style="height:120rpx">
+        <view class="flex  orangeBgColor flexTop" style="height: 220rpx;border-radius: 0 0 10% 10% / 0 0 70rpx 70rpx;">
+            <view class="flex container  flexBetween header">
+                <view style="flex: 1" class="flex flexStart">
+                    <view class="avatar" style="margin-right: 30rpx">
+                        <!-- <open-data type="userAvatarUrl"></open-data> -->
+                        <image data-url="{{headimgurl}}" catchtap="previewHeadImg" src="{{headimgurl}}"></image>
+                    </view>
+                    <view class="whiteColor sSize header flex flexCol flexNowrap flexAround flexTop" style="width: 50vw;">
+                        <view class="flex flexNowrap flexStart w100">
+                            <rich-text class="lSize textOverOne" style="margin-right: 15rpx;max-width: 26vw;">
+                                <!-- <open-data type="userNickName"></open-data> -->
+                                {{user_name}}
+                            </rich-text>
+                            <view>
+                                等级：{{level==0?'游客':level==1?'会员':level==2?'区级代理':level==3?"市级代理":''}}
+                            </view>
+                        </view>
+                        <view class="w100">绑定手机号： {{phone}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="flex">
+        <view class="flex container whiteBgColor flexNowrap" style="border-radius: 20rpx;height: 140rpx">
+            <view class="flex flexCol h100" style="flex: 1" catchtap="enterIntegral">
+                <view class="sSize" style="margin-bottom: 10rpx">今日预估收益</view>
+                <view class="orangeColor bold">￥ {{filter.KeepTwoDecimals(evaluat.today.price)}}</view>
+
+            </view>
+            <view class="flex flexCol h100" style="flex: 1" catchtap="enterIdCard">
+                <view class="sSize" style="margin-bottom: 10rpx">本月预估收益</view>
+                <view class="orangeColor bold">￥ {{filter.KeepTwoDecimals(evaluat.month.price)}}</view>
+
+            </view>
+            <view class="flex flexCol h100" style="flex: 1" catchtap="enterCoupon">
+                <view class="sSize" style="margin-bottom: 10rpx">累计收益</view>
+                <view class="orangeColor bold">￥ {{filter.KeepTwoDecimals(evaluat.total.price)}}</view>
+
+            </view>
+        </view>
+    </view>
+</template>

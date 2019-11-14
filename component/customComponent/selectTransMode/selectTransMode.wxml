@@ -1,0 +1,24 @@
+<view class="flex whiteBgColor cellGrounp" style="width:100vw">
+    <view class="flex flexCol container lSize">
+        <view class="flex flexNowrap cell w100 title" catchtap="_checkMode">
+            <view class="">选择物流</view>
+            <view class="sSize textOverOne flex flexStart subTitle" style="flex: 1;padding: 0 20rpx">已选择 :{{transMode.showCheck}}</view>
+            <view class="donowan subTitle lSize iconright" style="width:40rpx"></view>
+        </view>
+    </view>
+</view>
+
+<view class="cu-modal {{showModal?'show':''}}" catchtap="_hideModal">
+    <view class="cu-dialog">
+        <radio-group class="block" catchchange="_RadioModalRadioChange">
+            <view class="cu-list menu text-left">
+                <view class="cu-item" wx:for="{{transMode.options}}" wx:key="{{item.id}}">
+                    <label class="flex justify-between align-center flex-sub" style="min-height: 100rpx">
+                        <view class="flex-sub">{{item.mode}}</view>
+                        <radio class="round" value="{{item.id}}--{{item.mode}}" checked="{{item.checked}}"></radio>
+                    </label>
+                </view>
+            </view>
+        </radio-group>
+    </view>
+</view>

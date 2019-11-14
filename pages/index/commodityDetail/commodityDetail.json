@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "d-goods-action":"/component/customComponent/goodsAction/goodsAction",
+    "d-select-specification":"/component/customComponent/selectSpecification/selectSpecification",
+    "d-select-transMode":"/component/customComponent/selectTransMode/selectTransMode",
+    "d-my-cart":"/component/customComponent/enterMyCart/enterMyCart",
+    "d-shop-info":"/component/customComponent/shopInfo/shopInfo",
+    "d-evaluate":"/component/customComponent/evaluate/evaluate",
+    "d-back-top-btn":"/component/customComponent/backTopBtn/backTopBtn"
+  }
+}

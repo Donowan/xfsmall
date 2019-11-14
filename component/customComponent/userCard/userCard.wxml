@@ -1,0 +1,7 @@
+<import src="../../../template/userCard/userCard" />
+<!-- 解决层级bug -->
+<view class="relative" style="z-index:1}}">
+    <template wx:if="{{!showLoginBtn}}" is="userCard" data="{{...information}}"></template>
+    <view wx:if="{{showLoginBtn}}" catchtap="_awaken" class="whiteColor flex loginBtn blueBgColor padding-xx mSize">一键登录
+    </view>
+</view>

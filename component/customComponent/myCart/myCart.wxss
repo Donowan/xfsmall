@@ -1,0 +1,62 @@
+@import '../../../app.wxss';
+.cart{
+    width: 95vw;
+    margin: 0 auto;
+    border-radius: 20rpx;
+    overflow: hidden;
+    padding: 20rpx 0;
+    margin-bottom: 20rpx;
+}
+.shopName{
+    border-radius: 5rpx;
+    margin-bottom: 20rpx;
+    height: 70rpx;
+}
+.specification{
+    margin-top: 10rpx;
+}
+.checkBtn{
+    font-size: 40rpx;
+}
+.commodity-url{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 15rpx;
+    overflow: hidden;
+}
+.commodity-content{
+    height: 180rpx;
+    padding: 0 10rpx 0 20rpx;
+}
+.delete-cart{
+    font-size: 40rpx;
+    margin-top: 10rpx;
+}
+.shopNameTitle{
+    letter-spacing: 4rpx;
+}
+.submitOrder{
+    position: fixed;
+    width: 100vw !important;
+    border-top: 1rpx solid #eee;
+    bottom:0rpx;
+    z-index: 100;
+}
+.allCheck{
+    margin-right: 15rpx;
+}
+.submit{
+    padding:15rpx 30rpx;
+    border-radius:30rpx;
+}
+.deleteBtn{
+    margin-right: 20rpx;
+}
+.cartEmpty{
+    width:100vw;
+    height:50vw;
+}
+.cartEmpty .icon{
+    width:100vw;
+    height:20vw;
+}

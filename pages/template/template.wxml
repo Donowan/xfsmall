@@ -1,0 +1,102 @@
+<!-- 自定义顶部 -->
+<cu-custom bgColor="{{'themeBgColor'}}">
+	<view slot="content" style="color: white;">全网爆款</view>
+</cu-custom>
+
+<!-- 获取用户信息 -->
+<d-dialog title="{{userInFoDialog.title}}" show="{{userInFoDialog.show}}" type="{{userInFoDialog.type}}"
+    bind:onGetInfoHandle="getUserInfo"></d-dialog>
+
+<!-- 获取手机号码 -->
+<d-dialog title="{{phoneNumberlDialog.title}}" show="{{phoneNumberlDialog.show}}" type="{{phoneNumberlDialog.type}}"
+	bind:onGetInfoHandle="getPhoneNumber"></d-dialog>
+	
+<!-- 顶部搜索 -->
+<view style="position: sticky;top:{{CustomBar}}px;z-index: 100">
+	<d-top-search jumpUrl="/pages/specialSearch/specialSearch" styles="" color="{{themeColor}}"
+		placeHolder="{{'请输入搜索的内容'}}"></d-top-search>
+</view>
+
+<!-- 回到顶部 -->
+<d-back-top-btn visual="{{visual}}"></d-back-top-btn>
+
+<!-- 分享按钮 -->
+<!-- <d-share-poster catchawakenHandle="awaken"></d-share-poster> -->
+
+<!-- 购物车 -->
+<!-- <d-my-cart catchawakenHandle="awaken"></d-my-cart> -->
+
+<!-- 我的收益 -->
+<!-- <view class="incomeBtn flex" catchtap="enterIncome">
+	<view class="donowan iconshouyi1 whiteBgColor redColor income"></view>
+</view> -->
+<!-- 轮播图 -->
+<view class="slideDownBorder" style="background: {{themeColor}};"></view>
+<view style="margin-top: -10rpx;">
+    <d-swiper swiperList="{{swiperList}}" isCps="true"></d-swiper>
+</view>
+<!-- <view class="relative flex">
+    <view class="absolute templateThemeBgColor" style="width: 100vw;height:40rpx;z-index:-1;top: 0"></view>
+    <view class="wrapSwiper">
+        <d-swiper swiperList="{{swiperList}}"></d-swiper>
+    </view>
+</view> -->
+
+
+<!-- 分类列表 -->
+<view style="margin-bottom:15rpx;">
+	<!-- <d-category-list iconList="{{iconList}}"></d-category-list> -->
+	<view class="cu-list grid col-{{5}} no-border">
+		<view class="cu-item flex" wx:for="{{iconList}}" wx:key="{{index}}" catchtap="_enterSort" data-item="{{item}}">
+			<view style="width: 10vw;height: 10vw;overflow: hidden;border-radius: 50%;">
+				<image src="{{item.img_url}}" mode="aspectFill"></image>
+			</view>
+			<text>{{item.title}}</text>
+		</view>
+	</view>
+</view>
+
+
+<!-- 商品列表导航 -->
+<view style="position: sticky;top:{{CustomBar + 50}}px;z-index: 100">
+	<d-label-navigation tabsHeight="90" styles="color:#fff;background:{{themeColor}}" curreyActive="{{curreyActive}}"
+		catchonchange="changeCurreyActive" tabs="{{['拼多多','京东','唯品会','苏宁']}}"></d-label-navigation>
+</view>
+
+<view wx:if="{{commodityData.length>0}}">
+	<!-- 刷新组件 -->
+	<d-refresh loading="{{refresh}}"></d-refresh>
+	<!-- 商品列表 -->
+	<d-product-list type="{{curreyActive+1}}"
+		shopIcon="{{curreyActive==0?'title_tag_icon':curreyActive==1?'title_tag_icon_jd':curreyActive==2?'title_tag_icon_vph':curreyActive==3?'title_tag_icon_sn':''}}"
+		useSearch="{{true}}" type="{{curreyActive+1}}" productData="{{commodityData}}" catchawakenHandle="awaken" hideShopName="{{true}}">
+	</d-product-list>
+	<!-- 加载组件 -->
+	<d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>
+</view>
+
+<!-- 空白页 -->
+<view wx:if="{{commodityData.length==0}}" class="flex" style="height: 350rpx;">
+	<view style="width: 240rpx;height:280rpx;">
+		<image src="{{baseImgUrl}}/searchEmpty.png"></image>
+	</view>
+</view>
+
+
+<!-- <view class="greyBgColor"> -->
+<!-- <view style="font-size:20rpx;height: 40rpx;line-height: 40rpx;text-indent: 20rpx" class="red greyBgColor" >*请注意搜索结果的店名,是否与您复制标题的店名一致</view> -->
+<!-- <scroll-view scroll-y scroll-with-animation style="height: calc(100vh - 100rpx);" scroll-top="{{scrollTop}}"
+		bindscroll="scrolling" bindscrolltolower="lower">
+
+		<d-product-list type="{{curreyActive+1}}" shopIcon="{{curreyActive==0?'title_tag_icon':curreyActive==1?'title_tag_icon_jd':curreyActive==2?'title_tag_icon_vph':curreyActive==3?'title_tag_icon_sn':''}}"
+			useSearch="{{true}}" productData="{{commodityData}}" catchawakenHandle="awaken" hideShopName="{{true}}">
+		</d-product-list> -->
+
+<!-- 加载组件 -->
+<!-- <d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>
+		<view wx:if="{{commodityData.length==0}}" class="absolute"
+			style="width: 240rpx;height:280rpx;top:200rpx;left:50%;transform: translateX(-50%)">
+			<image src="/public/images/blank.png"></image>
+		</view>
+	</scroll-view>
+</view> -->

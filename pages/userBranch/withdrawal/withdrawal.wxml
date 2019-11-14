@@ -1,0 +1,33 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">申请提现</view>
+</cu-custom>
+
+<view class="margin-top flex " style="width:100vw">
+    
+    
+    <view class="flex container whiteBgColor card">
+            <view class="dcell flex w100 orangeBgColor">
+                    <view class="container flexStart mSize  whiteColor">提现到 ：Donowan的微信钱包</view>
+            </view>
+        <view class="flex container">
+                <view class="w100 dcell lSize flex flex flexStart">提现金额</view>
+                <view class="formInput flex container header">
+                    <view class="bold" style="font-size: 60rpx;">￥</view>
+                    <view class="flex h100 padding-xxx" style="flex: 1;">
+                        <input value="{{moneyNum}}" placeholder='请输入提现金额' bindinput="inputedit" confirm-type="done" type="digit"
+                            focus="true" class="w100 h100"></input>
+                    </view>
+                </view>
+                <view class="w100 dcell mSize flex flexBetween orangeColor padding-xxx">   
+                    <view>本次最多可提现100.00元</view>
+                    <view class="lSize" style="text-decoration: underline;">全部提现</view>
+                </view>
+        </view>
+        
+    </view>
+</view>
+<view class="flex margin-top">
+    <view class="container  withdrawalBtn bg-orange  flex" catchtap="enterWithdrawalStatus" aria-disabled="false">立即提现</view>
+</view>

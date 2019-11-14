@@ -1,0 +1,7 @@
+@import '../../../app.wxss';
+.icon{
+    width: 15vw;
+    height: 15vw;
+    overflow: hidden;
+    border-radius: 50%;
+}

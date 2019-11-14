@@ -1,0 +1,9 @@
+@import '../common.wxss';
+.userList{
+    border-radius: 30rpx;
+    overflow: hidden;
+    margin-bottom: 20rpx
+}
+.dcell{
+    height: 94rpx;
+}

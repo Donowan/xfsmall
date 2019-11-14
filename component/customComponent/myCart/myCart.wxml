@@ -1,0 +1,84 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 购物车内容 -->
+<!-- <view class="flex shopName yellowBgColor whiteColor" hidden="{{myCartData.cartData.length==0}}">
+    <view class="flex flexBetween container flexNowrap">
+        <view class="textOverOne shopNameTitle thin" style="flex: 1">{{myCartData.shopName}} ></view>
+        <view class="sSize padding-x whiteTag">领券</view>
+    </view>
+</view> -->
+<view style="margin-bottom: 20rpx;"></view>
+<view class="flex whiteBgColor cart" wx:for="{{myCartData.cartData}}" wx:key="{{index}}" wx:for-item="items" wx:for-index="indexs">
+    <view class="flex" wx:for="{{items.cart}}" wx:key="{{items.goods_id}}" style="margin:10rpx 0">
+        <view style="width:100rpx;height: 160rpx;" class="flex" catchtap="_changeCheckStatusOrNumber"
+            data-sku_id="{{item.sku_id}}" data-goods_id="{{items.goods_id}}" data-handle="checked">
+            <view wx:if="{{item.checked}}" class="donowan iconcheck-circle redColor" style="font-size: 50rpx"></view>
+            <view wx:if="{{!item.checked}}" class="donowan iconxuanze-moren subTitle checkBtn"></view>
+        </view>
+        <view style="width:calc(95vw - 200rpx)" class="flex flexNowrap flex">
+            <view class="commodity-url">
+                <image src="{{item.src}}"></image>
+            </view>
+            <view style="width:calc(95vw - 390rpx)" class="subTitle sSize flex flexCol flexNowrap flexBetween commodity-content">
+                <view class="textOver textOverTwo" style="align-self: flex-start" data-info="{{item}}" catchtap="_editSpecification"  data-goods_id="{{items.goods_id}}">
+                    {{item.title}}
+                </view>
+                <!-- catchtap="_editSpecification" 暂不做编辑-->
+                <view class="sSize flexStart flexNowrap w100 greyBgColor descript padding-x specification" catchtap="_editSpecification" data-info="{{item}}" data-goods_id="{{items.goods_id}}" >
+                    {{item.specification}}</view>
+                <view class="flex flexNowrap flexBetween" style="width: 100%">
+                    <view class="redColor mSize textOverOne" style="flex:1">￥{{filter.KeepTwoDecimals(item.price)}}
+                    </view>
+                    <van-stepper value="{{item.cartNum}}" integer="{{true}}" data-sku_id="{{item.sku_id}}" data-item="{{item}}" data-handle="cartNum" data-goods_id="{{items.goods_id}}"
+                        min="1" step="1" catch:change="_changeCheckStatusOrNumber" />
+                </view>
+            </view>
+        </view>
+        <view style="width: 100rpx;height: 160rpx;" class="flex flexCol subTitle sSize" catchtap="_deleteCart"
+        data-sku_id="{{item.sku_id}}" data-goods_id="{{items.goods_id}}" data-id="{{item.id}}">
+            <view>删除</view>
+            <view class="donowan iconshanchu delete-cart redColor"></view>
+        </view>
+    </view>
+</view>
+<!-- <view class=" cu-tabbar-height cu-tabbar-height"></view> -->
+<!-- 提交订单操作条 -->
+<view class="submitOrder whiteBgColor flex cu-tabbar-height cu-tabbar-height" hidden="{{myCartData.cartData.length==0}}">
+    <view class="flex" style="height:100%;width:95%;">
+        <view class="flex" catchtap="_checkAll">
+            <view wx:if="{{myCartData.checkAll}}" class="donowan iconcheck-circle redColor xlSize allCheck"></view>
+            <view wx:if="{{!myCartData.checkAll}}" class="donowan iconxuanze-moren subTitle mSize allCheck"
+                style="margin-top:4rpx"></view>
+            <view class="subTitle mSize">全选</view>
+        </view>
+        <view class="flex flexEnd" style="flex:1;padding:0 20rpx">
+            <view class="mSize">合计：</view>
+            <view class="sSize redColor">￥{{filter.KeepTwoDecimals(myCartData.totalPrice)}}</view>
+        </view>
+        <view class="flex" hidden="{{myCartData.checkAll || myCartData.totalPrice==0}}">
+            <button class="mSize whiteColor redBgColor  submit deleteBtn" catchtap="_deleteCheck">批量删除</button>
+        </view>
+        <view class="flex" hidden="{{!myCartData.checkAll}}">
+            <button class="mSize whiteColor redBgColor  submit deleteBtn" catchtap="_deleteAll">删除全部</button>
+        </view>
+        <view class="flex" catchtap="_enterEditOrder">
+            <button class="mSize whiteColor orangeBgColor submit">结算</button>
+        </view>
+    </view>
+</view>
+
+<!-- 购物车为空的情况 -->
+<view hidden="{{myCartData.cartData.length!=0}}">
+    <view class="cartEmpty flex flexAround">
+        <view class="icon">
+            <image src="{{baseImgUrl}}/cartEmpty.png" mode="aspectFit"></image>
+        </view>
+        <view class="flex flexCol">
+            <view class="title">购物车快饿瘪了哦T.T</view>
+                <view class="descript" style="margin-top:15rpx">快给我挑一些商品吧</view>
+        </view>
+            
+    </view>
+    
+    <!-- 商品列表 -->
+    <d-commodity-card listData="{{commodityData}}" title="猜你喜欢"></d-commodity-card>
+</view>

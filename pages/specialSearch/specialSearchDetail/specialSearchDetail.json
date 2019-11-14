@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "d-product-list": "../../../component/customComponent/productList/productList",
+    "d-sort": "../../../component/customComponent/sort/sort",
+    "d-search": "../../../component/customComponent/search/search",
+    "d-top-search": "../../../component/customComponent/topSearch/topSearch",
+    "d-loading": "../../../component/customComponent/loading/loading",
+    "d-refresh": "../../../component/customComponent/refresh/refresh",
+    "d-dialog": "/component/customComponent/dialog/dialog",
+    "d-label-navigation":"/component/customComponent/labelNavigation/labelNavigation"
+  }
+}

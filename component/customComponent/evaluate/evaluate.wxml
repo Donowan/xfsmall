@@ -1,0 +1,61 @@
+<import src="/template/element/element" />
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+
+<!-- 评价 -->
+<!-- <view class="flex dcell whiteBgColor" wx:if="{{evaluateData.length==0}}" style="margin: 5rpx 0">暂无评价</view> -->
+
+
+<view style="width:100vw" class="whiteBgColor" wx:for="{{evaluateData}}" wx:key="{{item.id}}"
+    wx:if="{{evaluateData.length>0}}">
+    <view wx:if="{{showMore}}" class="flex  dcell mSize w100 " style="border-bottom: 1rpx solid #f1f1f1"
+        catchtap="_enterEvaluateList">
+        <view class="flex container h100 flexNowrap">
+            <view class="padding-x title mSize thin" style="width:160rpx">评价({{length}})</view>
+            <view class="sSize padding-xx  descript right" style="flex: 1">查看所有评价</view>
+            <view class="donowan iconright xlSize descript"></view>
+        </view>
+    </view>
+    <view class="flex  dcell mSize w100 " style="border-bottom: 1rpx solid #f1f1f1">
+        <view class="flex container h100 flexNowrap">
+            <view class="avatar" style="width: 40rpx;height: 40rpx;">
+                <image
+                    src="{{item.user_info.headimgurl}}"
+                    class=""></image>
+            </view>
+            <view class="sSize padding-xx  descript left" style="flex: 1">
+                {{item.user_info.user_name}}
+            </view>
+            <view class="sSize padding-xx  descript left" style="flex: 1">
+                {{item.create_time}}
+            </view>
+            <view>
+                <template is="rate" data="{{...filter.rate(item.rate)}}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="flex container evaluate" style="margin: 0 auto">
+        <view wx:if="{{!item.showAllBtn}}" style="margin: 25rpx 0 10rpx 0;line-height: 30rpx;word-wrap: break-word;"
+            class="subTitle sSize left w100">{{item.message}}</view>
+        <view wx:if="{{item.showAllBtn}}" style="margin: 25rpx 0 10rpx 0;line-height: 30rpx;word-wrap: break-word;"
+            class="subTitle sSize left w100">{{filter.textOver(item.message)}}</view>
+        <view class="flex w100" catchtap="_switchEvaluate" hidden="{{!item.showAllBtn}}" data-index="{{index}}"
+            data-type="show">
+            <view class="sSize redColor">查看全部</view>
+            <view class="donowan redColor mSize icondown" style="margin-top: 4rpx"></view>
+        </view>
+        <view hidden="{{!item.showCloseBtn}}" class="flex w100" catchtap="_switchEvaluate" data-index="{{index}}"
+            data-type="close">
+            <view class="sSize redColor">收起</view>
+            <view class="donowan redColor mSize iconup" style="margin-top: 4rpx"></view>
+        </view>
+        <view class="w100 flex flexStart">
+            <view class="flex content flex" wx:for="{{item.saas_images}}" wx:for-item="imageList">
+                <view class="icon">
+                    <image data-url="{{imageList.image}}" catchtap="_previewEvaluateImage" src="{{imageList.image}}"></image>
+                </view>
+            </view>
+        </view>
+        <view class="w100 left dcell descript sSize">选择规格：{{item.sku_v_name}}</view>
+    </view>
+
+</view>

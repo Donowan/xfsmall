@@ -1,0 +1,50 @@
+@import '../../../app.wxss';
+.closeFont{
+    width: 50rpx;
+    position: absolute;
+    height: 50rpx;
+    border: 1rpx solid #ccc;
+    line-height: 40rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 40rpx;
+    z-index: 2000;
+    top:15rpx;
+    right:15rpx
+}
+.dialogHeader{
+    height: 160rpx;
+    border-bottom: 1rpx solid #d9d9d9;
+    margin-top: 10rpx;
+}
+.dialogHeader .icon{
+    width: 130rpx;
+    height: 130rpx;
+    margin-right: 20rpx;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+.commodityTitle{
+    max-width: calc(92vw - 250rpx);
+    margin-bottom: 20rpx;
+}
+.tabBtn,.actionTabBtn{
+    padding: 8rpx 25rpx;
+    border-radius: 10rpx;
+    margin:0 15rpx 15rpx 0;
+}
+.tabBtn{
+    color: #333;
+    border: 1rpx solid #333;
+}
+.actionTabBtn{
+    color: white;
+}
+.buyBar,.confirmBar{
+    height: 80rpx;
+    letter-spacing: 15rpx;
+}
+.confirmBar{
+    height: 80rpx;
+    margin-bottom: 20rpx;
+}

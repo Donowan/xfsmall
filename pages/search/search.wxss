@@ -1,0 +1,34 @@
+@import '../../app.wxss';
+page{
+    background: #fff !important;
+}
+.topSearchFont{
+    letter-spacing: 12rpx;
+    color:#9cbeff;
+    font-size: 30rpx;
+    
+}
+.topArea input{
+    width: 65%;
+    padding: 0 20rpx;
+    font-size:30rpx; 
+    line-height: 40rpx;
+}
+.commodity {
+    padding: 10rpx 0;
+}
+.commodity .noBorder .rightContent {
+    border: none
+}
+.historyArea{
+    padding: 25rpx;
+}
+.greyTag{
+    margin:0 20rpx 30rpx 0;
+    max-width: 70vw;
+    background-color: #f1f1f1;
+    border-radius: 28rpx;
+    padding: 5rpx 20rpx;
+    font-size: 30rpx;
+    color: #444;
+}

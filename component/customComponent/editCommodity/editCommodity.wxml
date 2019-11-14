@@ -1,0 +1,89 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<view class="cu-modal bottom-modal {{show?'show':''}}" catchtap="_hideModal">
+
+    <view class="cu-dialog relative" catchtap="_preventHide">
+        <view class="closeFont"  catchtap="_hideModal">x</view>
+        <view class="mSize subTitle flex relative" style="width: 100vw">
+            <view class="flex container" style="{{showStepper?'':'margin-bottom: 35rpx'}}">
+                <!-- 商品价格及标题 -->
+                <view class="flex flexNowrap dialogHeader w100">
+                    <view class="icon">
+                        <image src="{{cartDetail.thumbnail}}">
+                        </image>
+                    </view>
+                    <view style="flex: 1;padding-right: 50rpx;" class="h100 flex flexCol flexNowrap flexTop">
+                        <view class="textOver textOverTwo commodityTitle left">{{cartDetail.commodityTitle}}</view>
+                        <view class="flex xlSize redColor flexNowrap">
+                            <view class="flex">
+                                <view class="flex">
+                                        <view class="sSize">￥</view>
+                                        <view class="">{{filter.KeepTwoDecimals(cartDetail.price)}}</view>
+                                </view>
+                                <view class="flex sSize descript" wx:if="{{(editData || showDoublePrice) && (cartDetail.original_price || cartDetail.original_price=='0') && cartDetail.price != cartDetail.original_price}}">
+                                        <view class="">￥</view>
+                                        <view class="delete">{{filter.KeepTwoDecimals(cartDetail.original_price)}}</view>
+                                </view>
+                            </view>
+                            <view class="mSize" wx:if="{{cartDetail.maxPrice}}" style="margin:0 15rpx">~</view>
+                            <view class="flex" wx:if="{{cartDetail.maxPrice}}">
+                                <view class="flex">
+                                    <view class="sSize">￥</view>
+                                <view class="">{{filter.KeepTwoDecimals(cartDetail.maxPrice)}}</view>        
+                                </view>
+                                
+                                <view class="flex sSize descript" wx:if="{{(editData || showDoublePrice) && (cartDetail.original_price || cartDetail.original_price=='0')}}">
+                                        <view class="">￥</view>
+                                        <view class="delete">{{filter.KeepTwoDecimals(cartDetail.original_maxPrice)}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <!-- 详细规格 -->
+                <view wx:for="{{cartDetail.specification.options}}" class="w100" wx:key="{{index}}" wx:for-item="items"
+                    wx:for-index="indexs">
+                    <view class="flex flexStart w100 bold" style="margin: 15rpx 0">{{items.name}} :</view>
+                    <view class="flex w100 flexStart">
+                        <view wx:for="{{items.option}}" catchtap="_clickTapBtn" data-indexs="{{indexs}}" 
+                            data-index="{{index}}" wx:key="{{item.id}}"
+                            class="lSize {{item.checked?'actionTabBtn redBgColor':'tabBtn'}}">{{item.mode}}
+                        </view>
+                    </view>
+                </view>
+
+                <!-- 购买数量 -->
+                <view class="flex flexBetween w100" style="margin: 15rpx 0" wx:if="{{showStepper}}">
+                    <view class="sSize flex flexTop flexCol descript" style="margin: 15rpx 0">
+                        <view class="subTitle mSize">购买数量 :{{cartDetail.cartNum}}</view>
+                        <view>还剩 {{cartDetail.inventory}}件</view>
+                    </view>
+                    <van-stepper value="{{cartDetail.cartNum}}" integer="{{true}}" data-index="{{index}}"
+                        data-item="{{item}}" min="1" step="1" bind:change="_changeCart" />
+                </view>
+            </view>
+            <!-- 购买条按钮 -->
+            <view class="flex whiteColor w100 buyBar lSize" wx:if="{{bottomBar=='buy'?true:false}}">
+                <view class="flex orangeBgColor h100" catchtap="_addCart" style="flex: 1">加入购物车</view>
+                <view class="flex redBgColor h100" catchtap="_buyNow" style="flex: 1">立即购买</view>
+            </view>
+
+            <!-- 确认规格按钮 -->
+            <view class="flex whiteColor w100 confirmBar lSize" catchtap="_confirmSpecification"
+                wx:if="{{bottomBar=='confirm'?true:false}}">
+                <view class="flex orangeBgColor h100 " style="width: 80%;border-radius: 45rpx;">确认规格</view>
+            </view>
+
+            <!-- 加入购物车按钮 -->
+            <view class="flex whiteColor w100 confirmBar lSize" catchtap="_addCart"
+                wx:if="{{bottomBar=='addCart'?true:false}}">
+                <view class="flex orangeBgColor h100 " style="width: 80%;border-radius: 45rpx;">确定</view>
+            </view>
+
+            <!-- 购买按钮 -->
+            <view class="flex whiteColor w100 buyBar lSize" wx:if="{{bottomBar=='next'?true:false}}">
+                <view class="flex redBgColor h100" catchtap="_buyNow" style="flex: 1">下一步</view>
+            </view>
+        </view>
+    </view>
+</view>

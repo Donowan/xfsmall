@@ -1,0 +1,19 @@
+@import '../specialSearch.wxss';
+.topArea{
+    /* align-items: flex-end; */
+    height: 82rpx;
+}
+.topAreaCurreyHeight{
+    height: 60rpx !important;
+}
+.cartEmpty{
+    width:100vw;
+    height:50vw;
+}
+.cartEmpty .icon{
+    width:100vw;
+    height:20vw;
+}
+page{
+    background: rgb(228, 235, 236) !important;
+}

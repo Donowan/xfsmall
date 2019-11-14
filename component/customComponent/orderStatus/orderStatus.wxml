@@ -1,0 +1,72 @@
+<view class="flex" style="width: 100vw;">
+    <view class="container flex flexCol flexNowrap orderStatus whiteBgColor">
+        <view class="flex  w100" catchtap="_enterOrderList"  data-status="0">
+            <!-- 我的订单 -->
+            <view class="flex  dcell mSize w100" style="border-bottom: 1rpx solid #f1f1f1">
+                <view class="flex container h100 flexNowrap" catchtap="_enterOrderList" data-status="-1">
+                    <view class="padding-x title mSize thin" style="width:160rpx">我的订单</view>
+                    <view class="sSize padding-xx  descript right" style="flex: 1" >查看所有订单</view>
+                    <view class="donowan iconright xlSize descript"></view>
+                </view>
+            </view>
+        </view>
+        <view class="flex w100 subTitle mSize" style="margin: 25rpx 0 15rpx 0">
+            <view class="flex container">
+
+                <!-- 订单状态 -->
+                <view class="flex flexBetween container flexNowrap" style="height: 110rpx">
+                    <view class="flex flexCol flexBetween h100 relative"  catchtap="_enterOrderList" data-status="0">
+                        <view class="donowan icondaifukuandingdan redColor bold" style="font-size:46rpx"></view>
+                        <view>待付款</view>
+                        <view hidden="{{calOrderStatus.pay==0}}" class="absolute  flex whiteBgColor redColor dbadge">{{calOrderStatus.pay>99?'...':calOrderStatus.pay}}</view>
+                    </view>
+                    <view class="flex flexCol h100 flexBetween relative" catchtap="_enterOrderList" data-status="1">
+                        <view class="donowan icondaifahuo redColor bold" style="font-size:46rpx"></view>
+                        <view>待发货</view>
+                        <view hidden="{{calOrderStatus.send==0}}" class="absolute  flex whiteBgColor redColor dbadge">{{calOrderStatus.send>99?'...':calOrderStatus.send}}</view>
+                    </view>
+                    <view class="flex flexCol h100 flexBetween relative" catchtap="_enterOrderList" data-status="2">
+                        <view class="donowan icondaishouhuofuben redColor" style="font-size: 46rpx"></view>
+                        <view>待收货</view>
+                        <view hidden="{{calOrderStatus.collect==0}}" class="absolute  flex whiteBgColor redColor dbadge">{{calOrderStatus.collect>99?'...':calOrderStatus.collect}}</view>
+                    </view>
+                    <view class="flex flexCol h100 flexBetween relative" catchtap="_enterOrderList" data-status="3">
+                        <view class="donowan iconbianji redColor" style="font-size: 44rpx"></view>
+                        <view>待评价</view>
+                        <view hidden="{{calOrderStatus.evaluate==0}}" class="absolute  flex whiteBgColor redColor dbadge">{{calOrderStatus.evaluate>99?'...':calOrderStatus.evaluate}}</view>
+                    </view>
+                    <view class="flex flexCol h100 flexBetween relative" catchtap="_enterOrderList" data-status="12">
+                        <view class="donowan icontixian1 redColor" style="font-size: 46rpx"></view>
+                        <view>售后</view>
+                        <view hidden="{{calOrderStatus.return==0}}" class="absolute  flex whiteBgColor redColor dbadge">{{calOrderStatus.return>99?'...':calOrderStatus.return}}</view>
+                    </view>
+                    <view class="flex flexCol h100 flexBetween" catchtap="_enterOrderList" data-status="14">
+                        <view class="donowan iconyishixiao redColor bold" style="font-size: 42rpx"></view>
+                        <view>已失效</view>
+                    </view>
+                </view>
+
+                <!-- 物流信息 -->
+                <!-- <view class="boderColor flex container transStatus" catchtap="_enterTransInfo">
+                    <view class="flex flexBetween container" style="margin-bottom: 15rpx">
+                        <view>最新物流</view>
+                        <view>08/20</view>
+                    </view>
+                    <view class="flex container" style="height: 70rpx">
+                        <view class="icon">
+                            <image src='https://t00img.yangkeduo.com/goods/images/2018-08-25/d74cce1599e351809e6caa667c0c5c84.jpeg'></image>
+                        </view>
+                        <view class="flex  flexCol flexTop flexNowrap h100 flexBetween" style="flex: 1;padding-left: 25rpx">
+                            <view class="flex blueColor">
+                                <view class="donowan sSize iconcheck-circle"></view>
+                                <view class="sSize" style="margin-left: 10rpx">已签收</view>
+                            </view>
+                            <view class="descript textOverOne" style="width:50vw;height: 30rpx">54511222222222222222222222222222222222222241410</view>
+                        </view>
+                    </view>
+                </view> -->
+                
+            </view>
+        </view>
+    </view>
+</view>

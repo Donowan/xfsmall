@@ -1,0 +1,35 @@
+@import '../common.wxss';
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.fixed{
+    position: fixed;
+    /* bottom: 20vh; */
+    width: 130rpx;
+    height: 60rpx;
+    border-radius:40rpx 0 0 40rpx ;
+    /* background: rgb(255,102,0); */
+    z-index: 99;
+    transition: right 100ms linear; 
+}
+.fixed.active{
+    right:0;
+}
+.icon{
+    width: 5vw;
+    height: 5vw;
+    line-height: 4vw;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 5rpx
+}
+.icon .donowan{
+ 
+    font-size: 4vw;
+}
+.shareFont{
+    font-size: 24rpx;
+    color: white;
+}

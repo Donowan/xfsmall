@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "d-user-income":"/component/customComponent/userIncome/userIncome"
+  }
+}

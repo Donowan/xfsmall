@@ -1,0 +1,11 @@
+.header .iconright{
+    color: transparent !important;
+}
+.orderBar{
+    position:fixed;
+    bottom:0;
+    width: 100vw;
+    height: 85rpx;
+    z-index:100;
+    border-top:1rpx solid #f1f1f1;
+}

@@ -1,0 +1,20 @@
+<view class="cu-list grid col-{{gridCol}} no-border">
+	<view class="cu-item flex" wx:for="{{iconList}}" wx:key="{{index}}" data-item="{{item}}" catchtap="_enterSort"
+		data-id="{{item.kind_id}}" >
+		<!-- <view class="donowan icongengduo bold" style="color:{{item.color}};font-size:50rpx">
+		<view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+				<block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+			</view>
+			
+			
+		</view> -->
+		<view class="icon" >
+			<image src="{{item.image}}"></image>
+		</view>
+		<text class="bold">{{item.name}}</text>
+	</view>
+	<!-- <view wx:if="{{iconList.length>9}}" class="cu-item flex" catchtap="_enterSort" data-id="{{0}}">
+		<view class="donowan icongengduo bold" style="font-size:70rpx;width: 10vw;height: 10vw"></view>
+		<text>更多</text>
+	</view> -->
+</view>

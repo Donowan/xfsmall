@@ -1,0 +1,14 @@
+@import '../../../app.wxss';
+.tower-swiper .tower-item {
+    transform: scale(calc(0.5 + var(--index) / 10));
+    margin-left: calc(var(--left) * 100rpx - 150rpx);
+    z-index: var(--index);
+}
+.card-swiper{
+    border-radius: 15rpx;
+    overflow: hidden;
+}
+
+/* .swiper-item{
+    box-shadow: 0rpx 3rpx 10rpx 4rpx #000;
+} */

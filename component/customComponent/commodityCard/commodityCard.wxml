@@ -1,0 +1,91 @@
+<wxs src="../../../wxs/filter.wxs" module="filter" />
+<view class="flex" wx:if="{{layOut=='card'}}">
+    <!-- 刷新组件 -->
+    <d-refresh loading="{{refresh}}"></d-refresh>
+    <view class="flex" style="padding:20rpx 0 0 0">
+        <view class="flex commodityBar whiteBgColor" wx:if="{{showTitle}}">
+            <view class="blank redBgColor"></view>
+            <view class="xlSize bold commodityBarTitle title">{{title}}</view>
+            <view class="blank redBgColor"></view>
+        </view>
+        <view wx:if="{{image}}" style="width:100vw;height:20vw;margin-bottom: 20rpx;margin-top:-20rpx" data-model="{{listData}}" data-model_id="{{modelId}}" catchtap="_enterActiveList">
+            <image src="{{image}}"></image>
+        </view>
+        <view class="container flex flexBetween">
+            <view class="commodity whiteBgColor flex flexCol" wx:key="{{item.id}}" data-goods_id="{{item.id}}"
+                wx:for="{{listData}}" catchtap="_enterCommodityDetail">
+                <view class='icon'>
+                    <image src='{{item.image_url}}' lazy-load="{{true}}"></image>
+                </view>
+                <view catchtap="_addCart" data-id="{{item.id}}" data-item="{{item}}"
+                    class="title sSize textOver textOverTwo subTitle commodityTitle w100">{{item.title}}</view>
+                <view catchtap="_addCart" data-id="{{item.id}}" data-item="{{item}}"
+                    class="flex flexBetween flexNowrap commodityPrice">
+                    <view class="redColor lSize textOverOne" style="max-width: 70vw">
+                        ￥{{filter.KeepTwoDecimals(item.minFinalPrice)}}</view>
+                    <view class="delete descript sSize textOverOne" wx:if="{{item.minFinalPrice!=item.minPrice}}"
+                        style="max-width: 70vw">￥{{filter.KeepTwoDecimals(item.minPrice)}}</view>
+                        
+                    <view class="flex">
+                        <view class="orangeColor   xxlSize   addCart donowan icongouwuche"></view>
+                    </view>
+
+                </view>
+
+            </view>
+        </view>
+    </view>
+    <!-- 加载组件 -->
+    <d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>
+</view>
+<view class="flex" wx:if="{{layOut!='card'}}">
+    <!-- 刷新组件 -->
+    <d-refresh loading="{{refresh}}"></d-refresh>
+    <view class="flex" style="padding:20rpx 0 0 0">
+        <view class="flex ">
+            <view class="commodity commodityCol whiteBgColor flex flexBetween" wx:key="{{item.id}}" data-goods_id="{{item.id}}"
+                wx:for="{{listData}}" catchtap="_enterCommodityDetail">
+                <view class='icon flex'>
+                    <view style="width:25vw;height:25vw; border-radius:20rpx;overflow:hidden;">
+                            <image src='{{item.image_url}}' lazy-load="{{true}}"></image>
+                    </view>
+                    
+                </view>
+                <view class="flex flexCol flexBetween flexNowrap" style="width:64vw;height:25vw">
+                    <view class="title mSize  textOver textOverTwo title commodityTitle w100">{{item.title}}</view>
+                    <view class="flex flexBetween flexNowrap commodityPrice" catchtap="_addCart" data-id="{{item.id}}" data-item="{{item}}" >
+                        <view class="redColor lSize textOverOne" style="max-width: 70vw">
+                            ￥{{filter.KeepTwoDecimals(item.minFinalPrice)}}</view>
+                        <view class="delete descript sSize textOverOne" wx:if="{{item.minFinalPrice!=item.minPrice}}"
+                            style="max-width: 70vw">￥{{filter.KeepTwoDecimals(item.minPrice)}}</view>
+                            
+                        <view class="flex">
+                            <view class="orangeColor   xxlSize   addCart donowan icongouwuche"></view>
+                        </view>
+                    </view>
+                </view>
+
+
+            </view>
+        </view>
+    </view>
+    <!-- 加载组件 -->
+    <d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>
+    <!-- 商品为空的情况 -->
+    <view wx:if="{{listData.length==0 && listData!=null}}">
+        <view class="cartEmpty flex flexAround">
+            <view class="icon">
+                <image src="{{baseImgUrl}}/cartEmpty.png" mode="aspectFit"></image>
+            </view>
+            <view class="flex flexCol">
+                <view class="title">没有相关商品哦</view>
+                <view class="descript" style="margin-top:15rpx">请换个姿势打开吧^_^</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 商品规格弹出窗 -->
+<d-edit-commodity catchawakenHandle="_awaken" wx:if="{{showModal}}" goods_id="{{require_goods_id}}" catchhideModalHandle="_hideModal"
+    bottomBar="{{bottomBar}}">
+</d-edit-commodity>

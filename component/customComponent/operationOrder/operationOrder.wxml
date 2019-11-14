@@ -1,0 +1,17 @@
+<!-- 查看物流先放开测试   orderDetail.order_status!=1  -->
+<view class="flex w100 mSize whiteColor whiteBgColor flexEnd" style="height:85rpx;" hidden="{{orderDetail.order_status==14 || orderDetail.order_status==15}}">
+    <view class="greyTag dialogColor" style="margin-right: 30rpx;padding: 10rpx 30rpx;" wx:if="{{orderDetail.order_status==0}}"
+        data-order_id="{{orderDetail.order_id}}" catchtap='_cancelOrder'>取消订单</view>
+    <view class="pinkTag pinkColor" style="margin-right: 30rpx;padding: 10rpx 30rpx;" wx:if="{{orderDetail.order_status==1 || orderDetail.order_status==2 ||orderDetail.order_status==3 || orderDetail.order_status==4}}"
+        data-order_id="{{orderDetail.order_id}}" catchtap='_returnOrder'>申请退款</view>
+    <view class="redTag redColor" style="margin-right: 30rpx;padding: 10rpx 30rpx;" data-order_id="{{orderDetail.order_id}}"
+        data-expressid="{{orderDetail.express_id}}" catchtap="_searchTransInfo"
+        wx:if="{{orderDetail.order_status!=0 && orderDetail.order_status!=1 && orderDetail.order_status!=14 && orderDetail.order_status!=15}}">查看物流
+    </view>
+    <view class="orangeTag orangeColor" style="margin-right: 30rpx;padding: 10rpx 30rpx;"
+        wx:if="{{orderDetail.order_status==2}}" data-order_id="{{orderDetail.order_id}}" catchtap="_confirmReceipt">
+        确认收货</view>
+    <view data-order_id="{{orderDetail.order_id}}" class="yellowTag yellowColor padding-xxx" style="margin-right: 30rpx" wx:if="{{orderDetail.order_status==3 }}" catchtap="_evaluate">评价</view>
+    <view class="yellowTag yellowColor" style="margin-right: 30rpx;padding: 10rpx 30rpx;" wx:if="{{orderDetail.order_status==0}}"
+        data-order_id="{{orderDetail.order_id}}" catchtap="_payFor">去付款</view>
+</view>

@@ -1,0 +1,138 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">分销管理</view>
+</cu-custom>
+
+<!-- 导航栏 -->
+<scroll-view scroll-x class="bg-white nav text-center">
+    <view class="cu-item {{index==TabCur?'text-red cur':''}} lSize" wx:for="{{navList}}" wx:key bindtap="tabSelect"
+        data-id="{{index}}">
+        {{item.name}}
+    </view>
+</scroll-view>
+
+<!-- 佣金页面 -->
+<view hidden="{{TabCur==1}}">
+    <!-- <view class="yellowBgColor flex flexStart mSize whiteColor dcell">
+        <view class="flex flexBaseLine">
+            <view style="padding-left: 20rpx;">提现须知</view>
+            <viiew class="donowan iconright"></viiew>
+        </view>
+    </view> -->
+    <view class="inComeCard flex flexCol flexNowrap  whiteBgColor orangeColor" catchtap="enterIncomeDetail">
+        <view class="donowan iconshouyi1" style="font-size: 100rpx;"></view>
+        <view class="subTitle">可提现金额</view>
+        <view class="flex ">
+            <view class="text-price incomePrice">
+                80.00
+            </view>
+            <view class='donowan iconright xxlSize'></view>
+        </view>
+
+    </view>
+
+    <view class="flex margin-top">
+        <view class="userList">
+            <view wx:for="{{template}}" wx:key="{{item.id}}" class="flex whiteBgColor header mSize"
+                catchtap="enterWithdrawalDetail" style="margin: 5rpx 0" data-branch="{{item.branch}}">
+                <view class="flex  container h100 flexNowrap">
+                    <view class="padding-xx lSize subTitle textOverOne" style="flex:1;">{{item.branchName}}</view>
+                    <view class="padding-xx lSize redColor textOverOne flex flexEnd" style="flex:1;">{{item.price}}
+                    </view>
+                    <view class="donowan xxlSize descript {{item.nextIconName}}"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="flex margin-top">
+        <view class="container  withdrawalBtn bg-red  flex" catchtap="enterToWithdrawal" aria-disabled="false">我要提现</view>
+    </view>
+
+</view>
+
+<!-- 盟友页面 -->
+<view hidden="{{TabCur==0}}">
+    <!-- <view class="dcell whiteBgColor"></view> -->
+    <view class="inComeCard flex flexCol  flexNowrap whiteBgColor orangeColor">
+        <view class="donowan iconqunzu" style="font-size: 100rpx;"></view>
+        <view class="subTitle">盟友总人数</view>
+        <view class="flex ">
+            <view class="incomePrice">
+                80
+            </view>
+            <!-- <view class='donowan iconright xxlSize'></view> -->
+        </view>
+    </view>
+    <!-- 导航栏 -->
+    <scroll-view scroll-x class="bg-white nav">
+        <view class="flex text-center">
+            <view class="cu-item flex-sub  {{index==TabCur2?'text-red cur':''}} lSize" wx:for="{{navList2}}" wx:key
+                bindtap="tabSelect2" data-id="{{index}}">
+                {{item.name}}
+            </view>
+        </view>
+    </scroll-view>
+    <view class="cu-list menu-avatar margin-top">
+        <view class="cu-item">
+            <view class="cu-avatar round lg"
+                style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+            <view class="content">
+                <view class="text-grey">Donowan</view>
+                <view class="text-gray text-sm flex">
+                    <view class="w100">
+                        盟友数 5
+                    </view>
+                </view>
+            </view>
+            <view class="action">
+                <view class="descript xlSize donowan iconqunzu"></view>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="cu-avatar round lg"
+                style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+            <view class="content">
+                <view class="text-grey">Donowan</view>
+                <view class="text-gray text-sm flex">
+                    <view class="w100">
+                        盟友数 5
+                    </view>
+                </view>
+            </view>
+            <view class="action">
+                <view class="descript xlSize donowan iconqunzu"></view>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="cu-avatar round lg"
+                style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+            <view class="content">
+                <view class="text-grey">Donowan</view>
+                <view class="text-gray text-sm flex">
+                    <view class="w100">
+                        盟友数 5
+                    </view>
+                </view>
+            </view>
+            <view class="action">
+                <view class="descript xlSize donowan iconqunzu"></view>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="cu-avatar round lg"
+                style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+            <view class="content">
+                <view class="text-grey">Donowan</view>
+                <view class="text-gray text-sm flex">
+                    <view class="w100">
+                        盟友数 5
+                    </view>
+                </view>
+            </view>
+            <view class="action">
+                <view class="descript xlSize donowan iconqunzu"></view>
+            </view>
+        </view>
+    </view>
+</view>

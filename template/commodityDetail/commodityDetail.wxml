@@ -1,0 +1,57 @@
+<wxs src="../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 商品详情 -->
+<template name="commodity">
+    <view class="mainBgColor commodityTemplate">
+        <view class="swiperTemplate">
+            <swiper class="swiper" indicator-dots="{{true}}" circular="{{true}}" autoplay="{{true}}" interval="5000"
+                duration="500">
+                <swiper-item wx:for="{{swiper}}" wx:key="{{index}}">
+                    <image src="{{item.image}}" mode="aspectFill" data-url="{{item.image}}" catchtap="previewSwiper"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="commodityTitleTemplate flex flexNowrap whiteBgColor relative">
+            <!-- <view class="absolute icon redBgColor">
+                <view class="whiteColor flex">Dono</view>
+            </view> -->
+            <view style="flex:1;padding:20rpx 35rpx 20rpx 20rpx;line-height:45rpx;" class="mSize title">
+                {{commodityTitle}}</view>
+            <view class="shareBtn flex whiteColor inline-block center orangeBgColor" catchtap="openActionSheet">
+                <view class="donowan xxlSize  iconshare" style="margin:-4rpx 8rpx 0 0"></view>
+                <view class="sSize bold">分享</view>
+            </view>
+        </view>
+        <view class="flex xlSize redColor priceTemplate whiteBgColor">
+            <view class="flex flexStart container">
+                <view class="flex">
+                    <view class="sSize">￥</view>
+                    <view class="">{{filter.KeepTwoDecimals(minFinalPrice)}}</view>
+                </view>
+
+                <view class="flex sSize descript delete" wx:if="{{minFinalPrice!=minPrice}}">
+                    <view class="">￥</view>
+                    <view class="">{{filter.KeepTwoDecimals(minPrice)}}</view>
+                </view>
+
+                <view class="mSize" wx:if="{{minFinalPrice!=maxFinalPrice}}" style="margin:0 15rpx">~</view>
+                <view class="flex" wx:if="{{minFinalPrice!=maxFinalPrice}}">
+                    <view class="sSize">￥</view>
+                    <view class="">{{filter.KeepTwoDecimals(maxFinalPrice)}}</view>
+                </view>
+               
+                <view class="flex sSize descript delete" wx:if="{{maxFinalPrice!=maxPrice && minFinalPrice!=maxFinalPrice}}">
+                    <view class="">￥</view>
+                    <view class="">{{filter.KeepTwoDecimals(maxPrice)}}</view>
+                </view>
+            </view>
+        </view>
+        <!-- <view class="flex saveTemplate whiteBgColor">
+            <view class="flex sSize flexBetween container"> -->
+                <!-- <view class="descript">运费：{{transmode}}</view> -->
+                <!-- <view class="descript">运费：免运费</view>
+                <view class="descript">销量：{{salesVolume}}</view>
+                <view class="descript">剩余：{{inventory}} 件</view>
+            </view>
+        </view> -->
+    </view>
+</template>

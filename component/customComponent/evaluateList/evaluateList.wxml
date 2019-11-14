@@ -1,0 +1,47 @@
+<import src="/template/element/element" />
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+
+<!-- 评价内容 -->
+<view style="margin:20rpx 0;" wx:for="{{evaluate}}">
+        <view class="cu-card dynamic {{isCard?'no-card':''}}">
+                <view class="cu-item shadow ">
+                        <view class="cu-list menu-avatar">
+                                <view class="cu-item">
+                                        <view class="cu-avatar round lg" data-url="{{item.user_info.headimgurl}}" catchtap="_previewHeadimg"
+                                                style="background-image:url({{item.user_info.headimgurl}});">
+                                        </view>
+                                        <view class="content flex-sub">
+                                                <view class="textOverOne" style="width:60%;display:block">{{item.user_info.user_name}}</view>
+                                                <view class="text-gray text-sm flex flexBetween">
+                                                        {{item.create_time}}
+                                                </view>
+                                        </view>
+                                        <view>
+                                                <template is="rate" data="{{...filter.rate(item.rate)}}"></template>
+                                        </view>
+                                </view>
+                        </view>
+                        <view class="padding-xx mSize descript greyBgColor">
+                                选择规格:{{item.sku_v_name}}
+                        </view>
+                        <view class="text-content margin-top">
+                                {{item.message}}
+                        </view>
+                        <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+                                <view catchtap="_previewImage" data-url="{{imageList.image}}"
+                                        data-urls="{{item.saas_images}}" class="bg-img {{isCard?'':'only-img'}}"
+                                        style="background-image:url({{imageList.image}});" wx:for="{{item.saas_images}}"
+                                        wx:for-item="imageList">
+                                </view>
+                        </view>
+                        <!-- 商品信息 -->
+                        <view wx:if="{{haveCommodityCard}}" class="margin-top" data-id="{{item.hss_deal_spu.spu_id}}" catchtap="_enterCommodityDetail">
+                                <van-card num="{{item.hss_deal_spu.count}}"
+                                        price="{{filter.KeepTwoDecimals(item.hss_deal_spu.price)}}"
+                                        desc="{{item.hss_deal_spu.sku_v_name}}" title="{{item.hss_deal_spu.spu_title}}"
+                                        thumb="{{item.hss_deal_spu.image}}" />
+                        </view>
+                        <view class="dcell"></view>
+                </view>
+        </view>
+</view>

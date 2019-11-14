@@ -1,0 +1,13 @@
+@import '../../../template/cps/cps.wxss';
+.cellGrounp{
+    margin-top: 30rpx;
+}
+.loginBtn{
+    text-decoration: underline;
+    padding: 15rpx 20rpx;
+    border-radius: 10rpx;
+    background: rgb(26, 173, 25)
+}
+.ownRefresh{
+    height: 100rpx;
+}

@@ -1,0 +1,155 @@
+<!-- 普通窗口 -->
+
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">Modal标题</view>
+            <view class="action" catchtap="_hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+            Modal 内容。
+        </view>
+    </view>
+</view>
+
+<!-- 底部窗口 -->
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" catchtap="_hideModal">
+
+    <view class="cu-dialog relative" >
+        <view class="closeFont" style="top:10rpx;right:10rpx" catchtap="_hideModal">x</view>
+        <slot name="content" catchtap="_preventHide"></slot>
+    </view>
+</view>
+
+
+<!-- 对话窗口 -->
+
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">Modal标题</view>
+            <view class="action" catchtap="_hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+            Modal 内容。
+        </view>
+        <view class="cu-bar bg-white justify-end">
+            <view class="action">
+                <button class="cu-btn line-green text-green" catchtap="_hideModal">取消</button>
+                <button class="cu-btn bg-green margin-left" catchtap="_hideModal">确定</button>
+
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">Modal标题</view>
+            <view class="action" catchtap="_hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+            Modal 内容。
+        </view>
+        <view class="cu-bar bg-white">
+            <view class="action margin-0 flex-sub text-green " catchtap="_hideModal">
+                <text class="cuIcon-moneybag"></text>微信支付</view>
+            <view class="action margin-0 flex-sub text-green solid-left" catchtap="_hideModal">取消</view>
+            <view class="action margin-0 flex-sub  solid-left" catchtap="_hideModal">确定</view>
+        </view>
+    </view>
+</view>
+
+
+<!-- 图片窗口 -->
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="bg-img"
+            style="background-image: url('https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg');height:200px;">
+            <view class="cu-bar justify-end text-white">
+                <view class="action" catchtap="_hideModal">
+                    <text class="cuIcon-close "></text>
+                </view>
+            </view>
+        </view>
+        <view class="cu-bar bg-white">
+            <view class="action margin-0 flex-sub  solid-left" catchtap="_hideModal">我知道了</view>
+        </view>
+    </view>
+</view>
+
+
+<!-- 单选窗口 -->
+
+
+<view class="cu-modal {{modalName=='RadioModal'?'show':''}}" catchtap="_hideModal">
+    <view class="cu-dialog">
+        <radio-group class="block" catchchange="_RadioModalRadioChange">
+            <view class="cu-list menu text-left">
+                <view class="cu-item" wx:for="{{modalContent}}" wx:key="{{item.id}}">
+                    <label class="flex justify-between align-center flex-sub" style="min-height: 100rpx">
+                        <view class="flex-sub">{{item.mode}}</view>
+                        <!-- ‘--’作为分隔符 -->
+                        <radio class="round" value="{{item.id}}--{{item.mode}}" checked="{{item.checked}}"></radio>
+                    </label>
+                </view>
+            </view>
+        </radio-group>
+    </view>
+</view>
+
+<!-- 多选窗口 -->
+
+<view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" catchtap="_hideModal">
+    <view class="cu-dialog" catchtap>
+        <view class="cu-bar bg-white">
+            <view class="action text-blue" catchtap="_hideModal">取消</view>
+            <view class="action text-green" catchtap="_hideModal">确定</view>
+        </view>
+        <view class="grid col-3 padding-sm">
+            <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+                <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}"
+                    catchtap="ChooseCheckbox" data-value="{{item.value}}"> {{item.name}}
+                    <view class="cu-tag sm round {{item.checked?'bg-white text-orange':'bg-orange'}}"
+                        wx:if="{{item.hot}}">HOT</view>
+                </button>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<!-- 侧边抽屉 -->
+
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" catchtap="_hideModal">
+    <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+        <view class="cu-list menu text-left">
+            <view class="cu-item arrow" wx:for="{{5}}" wx:key>
+                <view class="content">
+                    <view>Item {{index +1}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="cu-modal drawer-modal justify-end {{modalName=='DrawerModalR'?'show':''}}" catchtap="_hideModal">
+    <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+        <view class="cu-list menu text-left">
+            <view class="cu-item arrow" wx:for="{{5}}" wx:key>
+                <view class="content">
+                    <view>Item {{index +1}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

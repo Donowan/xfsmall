@@ -1,0 +1,96 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">生成海报</view>
+</cu-custom>
+
+<!-- <view hidden="{{options.commodityType!=0}}"> -->
+    <!-- 创建分享小程序海报 -->
+    <!-- <view class="posterDialog flex" hidden="{{options.type!='shareMiniProgram'}}">
+        <view class="flex container" style="width: 85vw">
+            <swiper display-multiple-items="{{true}}" circular="{{true}}" bindchange="changeCanvas"
+                style="width: 100%;height: 112vw" indicator-dots="{{false}}" autoplay="{{false}}" duration="500">
+
+                <swiper-item wx:for="{{posterBgImage}}" wx:key="{{index}}">
+                    <canvas style="width: 85vw; height: 112vw;" canvas-id="posterCanvas{{index}}"
+                        id="posterCanvas{{index}}">
+                    </canvas>
+
+                </swiper-item>
+
+            </swiper>
+            <view class="shareButton flex">
+                <button wx:if="{{!writePhotosAlbum}}" class="whiteColor mSize orangeBgColor" open-type="openSetting"
+                    bindopensetting="openSetting">保存图片</button>
+                <button wx:if="{{writePhotosAlbum}}" class="whiteColor mSize orangeBgColor"
+                    catch:tap="saveMiniProgramPoster">保存图片</button>
+                <button class="redBgColor mSize whiteColor" open-type='share' catch:tap="inviteFriends">邀请好友</button>
+            </view>
+        </view>
+    </view> -->
+
+    <!-- 创建分享商品海报 -->
+    <!-- <view style="overflow: hidden;height:calc(100vh - {{CustomBar}}px)" hidden="{{options.type!='shareCommodity'}}">
+        <view class="posterDialog flex" style="height:calc(100vh - {{CustomBar}}px)">
+            <view class="flex container" style="width: 80vw">
+                <canvas style="width: 100%; height:calc(85vh - {{CustomBar}}px)" canvas-id="posterCanvas" id="posterCanvas">
+                </canvas>
+                <view class="shareButton flex">
+                    <button wx:if="{{!writePhotosAlbum}}" class="whiteColor mSize orangeBgColor" open-type="openSetting"
+                        bindopensetting="openSetting">保存图片</button>
+                    <button wx:if="{{writePhotosAlbum}}" class="whiteColor mSize orangeBgColor"
+                        catch:tap="savePoster">保存图片</button>
+                    <button wx:if="{{invite}}" class="redBgColor mSize whiteColor" open-type='share'>邀请好友</button>
+                    <button wx:if="{{!invite}}" class="redBgColor mSize whiteColor">邀请好友</button>
+                </view>
+            </view>
+
+        </view>
+        <canvas canvas-id="shareCanvas" id="shareCanvas" style="width:80vw;height:64vw;margin-top: 300vh"></canvas>
+    </view> -->
+<!-- </view> -->
+<!-- <view hidden="{{options.commodityType==0}}"> -->
+    <!-- cps创建分享小程序海报 -->
+    <view class="posterDialog flex" style="height:calc(100vh - {{CustomBar}}px)" hidden="{{options.type!='shareMiniProgram'}}">
+        <view class="flex container" style="width: 85vw">
+            <swiper display-multiple-items="{{true}}" circular="{{true}}" bindchange="changeCanvas"
+                style="width: 100%;height: 112vw" indicator-dots="{{false}}" autoplay="{{false}}" duration="500">
+
+                <swiper-item wx:for="{{posterBgImage}}" wx:key="{{index}}">
+                    <canvas style="width: 85vw; height: 112vw;" canvas-id="posterCanvas{{index}}"
+                        id="posterCanvas{{index}}">
+                    </canvas>
+
+                </swiper-item>
+
+            </swiper>
+            <view class="shareButton flex">
+                <button wx:if="{{!writePhotosAlbum}}" class="whiteColor mSize orangeBgColor" open-type="openSetting"
+                    bindopensetting="openSetting">保存图片</button>
+                <button wx:if="{{writePhotosAlbum}}" class="whiteColor mSize orangeBgColor"
+                    catch:tap="saveMiniProgramPoster">保存图片</button>
+                <button class="redBgColor mSize whiteColor" open-type='share' catch:tap="inviteFriends">邀请好友</button>
+            </view>
+        </view>
+    </view>
+
+    <!-- cps创建分享商品海报 -->
+    <view style="overflow: hidden;height:calc(100vh - {{CustomBar}}px)" hidden="{{options.type!='shareCommodity'}}">
+        <view class="posterDialog flex" style="height:calc(100vh - {{CustomBar}}px)">
+
+            <view class="flex container" style="width: 80vw">
+                <canvas style="width: 100%; height:calc(85vh - {{CustomBar}}px)" canvas-id="posterCanvas" id="posterCanvas">
+                </canvas>
+                <view class="shareButton flex">
+                    <button wx:if="{{!writePhotosAlbum}}" class="whiteColor mSize orangeBgColor" open-type="openSetting"
+                        bindopensetting="openSetting">保存图片</button>
+                    <button wx:if="{{writePhotosAlbum}}" class="whiteColor mSize orangeBgColor"
+                        catch:tap="savePoster">保存图片</button>
+                    <button wx:if="{{invite}}" class="redBgColor mSize whiteColor" open-type='share'>邀请好友</button>
+                    <button wx:if="{{!invite}}" class="redBgColor mSize whiteColor">邀请好友</button>
+                </view>
+            </view>
+
+        </view>
+        <canvas canvas-id="shareCanvas" id="shareCanvas" style="width:80vw;height:64vw;margin-top: 300vh"></canvas>
+    </view>
+<!-- </view> -->

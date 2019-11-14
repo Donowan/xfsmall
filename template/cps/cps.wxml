@@ -1,0 +1,62 @@
+<template name="personalCard">
+    <view class="container flex personalCard ">
+        <view class="container flex flexStart flexNowrap">
+            <view class="icon avatar" catchtap="clickAvatar" data-url="{{headimgurl}}">
+                <image src="{{headimgurl}}"></image>
+            </view>
+            <view class="userInfo flex flexCol flexTop flexBetween" >
+                <view class="flex flexStart">
+                    <view class="lSize title textover" style="max-width: 50vw">{{nickname}}</view>
+                    <view class="blank"></view>
+                    <view class="sSize title level {{level==1?'level1':level==2?'level2':'level3'}}"></view>
+                </view>
+
+                <view class="sSize subTitle flex flexStart">
+                    <!-- <view class="accountNumber">账号:{{accountNumber}}</view> -->
+                    <view class="flex">
+                        <view class="phone redColor">绑定账号： {{phoneNum}}</view>
+                        <view catchtap="copyPhoneNum" style="font-size: 22rpx;margin-left: 15rpx;" class="greyTag">
+                            复制</view>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+    </view>
+</template>
+
+<wxs src='../../wxs/filter.wxs' module="filter"></wxs>
+<template name="incomeCard">
+  <view class="container flex incomeCard">
+    <view class="flex panelTitle" style= "{{'background:'+themeColor}}">
+      <view class='flex container  flexBetween'>
+        <view class="flex flexTop" catchtap='answerQuestion'>
+          <view class="whiteColor sSize">{{panelTitle}}</view>
+          <view class="donowan iconquestion whiteColor"></view>
+        </view>
+        <view class="flex flexTop">
+          <view class="donowan icontixian whiteColor"></view>
+          <view class="whiteColor sSize">{{panelTip}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="flex panelContent lSize">
+      <view class="flex  flexCol panelContentItem" style="border-right: 1rpx solid #f1f1f1">
+        <view>今日预估收益</view>
+        <view class="descript">￥{{filter.KeepTwoDecimals(today)}}</view>
+      </view>
+      <view class="flex flexCol panelContentItem">
+        <view>本月预估收益</view>
+        <view class="descript">￥{{filter.KeepTwoDecimals(month)}}</view>
+      </view>
+
+      <view class="flex whiteColor mSize" style="{{'background:'+themeColor}};width: 100%;padding: 15rpx 0" catchtap='showPop'>
+        <view>全平台累计预估收益:</view>
+        <view class="blank"></view>
+        <view class="lSize">￥{{filter.KeepTwoDecimals(total)}}</view>
+        <view class="absolute mSize" style="border: 1rpx white solid;right: 50rpx;padding:0 6rpx;border-radius: 5rpx">提现</view>
+    </view>
+    </view>
+  </view>
+</template>

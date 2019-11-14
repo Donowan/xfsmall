@@ -1,0 +1,17 @@
+
+<view class="dialog">
+    <view class="content whiteBgColor">
+        <view class="flex dialogTitle title">
+            <view class="lSize">
+                提示
+            </view>
+        </view>
+        <view class="flex sSize " style="padding: 30rpx 0 0 0rpx">
+            登录状态已过期请重新登录
+        </view>
+        <view class="flex" style="padding: 30rpx 0">
+                <navigator open-type="reLaunch" url="/pages/index/index"   style="width:100%;padding: 30rpx 0;color:{{themeColor}};border-top:1rpx solid #f1f1f1;" class="flex title mSize">确定</navigator>    
+        </view>
+        
+    </view>
+</view>

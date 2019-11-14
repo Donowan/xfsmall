@@ -1,0 +1,13 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">提现进度</view>
+</cu-custom>
+<view class="status flex">
+    <text class="iconshenhezhong donowan" style="font-size: 90vw;margin-top: -230rpx;"></text>
+</view>
+<view class="status flex">
+    <text class="iconbhjshenhetongguo donowan" style="font-size: 90vw;margin-top: -230rpx;"></text>
+</view><view class="status flex">
+    <text class="iconqunfengshenheshibai donowan" style="font-size: 90vw;margin-top: -230rpx;"></text>
+</view>

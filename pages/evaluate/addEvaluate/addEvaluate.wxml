@@ -1,0 +1,55 @@
+<import src="/template/element/element" />
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">商品详情</view>
+</cu-custom>
+
+<form bindsubmit="submitEvaluate">
+    <view style="margin: 0 auto;width: 95%;">
+        <view wx:for="{{orderList}}" wx:key="{{spu_id}}" wx:for-item="items" wx:for-index="indexs" class=" evaluate">
+            <view class="cu-form-group flexNowrap evaluateHeader">
+                <view class="icon avatar">
+                    <image src="{{items.image}}"></image>
+                </view>
+                <view class="mSize subTitle">评分详情</view>
+                <!-- <input style="display: none;" name="{{'rate_'+items.id}}" value="{{items.rate}}"></input> -->
+                <view capture-bind:tap="clickEvaluate" data-evaluate_index="{{indexs}}">
+                    <template is="rate" data="{{...filter.rate(items.rate)}}"></template>
+                </view>
+                <view class="mSize subTitle" style="width: 4em;">
+                    {{items.rate==5?'非常好':items.rate==4?'很好':items.rate==3?'基本满意':items.rate==2?'一般':'不满意'}}</view>
+            </view>
+            <!-- !!!!! placeholder 在ios表现有偏移  -->
+            <view class="cu-form-group">
+                <textarea maxlength="300" data-content_index="{{indexs}}" value="{{items.content}}" disabled="{{modalName!=null}}"
+                    bindinput="textareaAInput" name="{{'content_'+ items.id}}" placeholder="请填写您对商品的评价"></textarea>
+            </view>
+            <view class="cu-bar bg-white" style="min-height:auto">
+                <view class="action">
+                    图片上传数量
+                </view>
+                <view class="action">
+                    {{items.imgList.length}}/4
+                </view>
+            </view>
+            <view class="cu-form-group">
+                <view class="grid col-4 grid-square flex-sub">
+                    <!-- <input style="display: none;" name="{{'imgList_'+ items.id}}" value="{{filter.join(items.imgList,',')}}"></input> -->
+                    <view class="bg-img" wx:for="{{items.imgList}}" wx:for-index="index" wx:key="{{index}}"
+                        data-index="{{indexs}}" bindtap="ViewImage" data-url="{{item}}">
+                        <image src='{{item}}' mode='aspectFit'></image>
+                        <view class="cu-tag bg-red" catchtap="DelImg" data-indexs="{{indexs}}" data-index="{{index}}">
+                            <text class="cuIcon-close"></text>
+                        </view>
+                    </view>
+                    <view class="" data-index="{{indexs}}" bindtap="ChooseImage" wx:if="{{items.imgList.length<4}}">
+                        <text class="donowan cuIcon- iconzhaopianphoto182 greyColor" style="font-size:60rpx"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <button class="header orangeBgColor flex whiteColor xlSize submitEvaluate" form-type="submit">提交评价</button>
+</form>

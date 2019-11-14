@@ -1,0 +1,307 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.3",
+	"appid": "wx9e7aa91192b651ef",
+	"projectname": "hss-mall",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "商品详情图",
+					"pathName": "pages/index/commodityDetail/commodityDetail",
+					"query": "goods_id=125&pid=12",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/myCart/myCart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "确认订单页",
+					"pathName": "pages/editOrder/editOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "增加收货地址",
+					"pathName": "pages/manageAddress/addAddress/addAddress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择地址页面",
+					"pathName": "pages/manageAddress/chooseAddress/chooseAddress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑地址",
+					"pathName": "pages/manageAddress/editAddress/editAddress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "订单列表",
+					"pathName": "pages/orderList/orderList",
+					"query": "field=-1",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "订单详情",
+					"pathName": "pages/orderList/orderDetail/orderDetail",
+					"query": "field=157105591769838401",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "物流信息",
+					"pathName": "pages/transInfo/transInfo",
+					"query": "field={\"order_id\":\"157105591769838401\",\"expressid\":\"111\"}",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "所有工具",
+					"pathName": "pages/allTool/allTool",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "支付成功页",
+					"pathName": "pages/paySuccess/paySuccess",
+					"query": "order_id=157105060200032205",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "添加评价",
+					"pathName": "pages/evaluate/addEvaluate/addEvaluate",
+					"query": "order_id=157182198557336671",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的评价列表",
+					"pathName": "pages/userBranch/myEvaluate/myEvaluate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "全网爆款",
+					"pathName": "pages/template/template",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收益明细",
+					"pathName": "pages/userBranch/income/income",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺所有分类",
+					"pathName": "pages/sort/sort",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品所有评价",
+					"pathName": "pages/evaluate/allEvaluate/allEvaluate",
+					"query": "goods_id=125",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cps  我的",
+					"pathName": "pages/template/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cps订单",
+					"pathName": "pages/template/user/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "cps商品详情页",
+					"pathName": "pages/template/commodityDetail/commodityDetail",
+					"query": "goods_id= 13863233&type=1",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "生成海报",
+					"pathName": "pages/createPoster/createPoster",
+					"query": "goods_id=125&type=shareCommodity&commodityType=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "sass搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索结果",
+					"pathName": "pages/search/searchDetail/searchDetail",
+					"query": "keyWords=坚果大礼包",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cps搜索页面",
+					"pathName": "pages/specialSearch/specialSearch",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 25,
+					"name": "cps所有分类",
+					"pathName": "pages/sort/sort",
+					"query": "type=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录失效页",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二维码跳转拼多多详情",
+					"pathName": "pages/template/commodityDetail/commodityDetail",
+					"query": "scene=60052857068%2B19325%2B1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二维码跳转京东详情",
+					"pathName": "pages/template/commodityDetail/commodityDetail",
+					"query": "scene=52329769460%2B19325%2B2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二维码跳转苏宁详情",
+					"pathName": "pages/template/commodityDetail/commodityDetail",
+					"query": "scene=11423414984%2B19325%2B4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分销管理",
+					"pathName": "pages/userBranch/distribution/distribution",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 31,
+					"name": "收益明细",
+					"pathName": "pages/userBranch/inComeDetail/inComeDetail",
+					"query": "type=inCome",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分佣订单",
+					"pathName": "pages/userBranch/otherOrderDetail/otherOrderDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提现页面",
+					"pathName": "pages/userBranch/withdrawal/withdrawal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "t提现状态",
+					"pathName": "pages/userBranch/withdrawalStatus/withdrawalStatus",
+					"query": "type=inCome",
+					"scene": null
+				}
+			]
+		}
+	}
+}

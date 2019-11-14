@@ -1,0 +1,1 @@
+<image wx:if="{{visual}}" src="{{icon}}" class="back-top-btn" style="bottom: {{bottom}}rpx" bindtap="_scrollToTop" />

@@ -1,0 +1,7 @@
+.back-top-btn{
+    position: fixed;
+    z-index: 999; 
+    right: 40rpx;
+    width: 90rpx; 
+    height: 90rpx;
+}

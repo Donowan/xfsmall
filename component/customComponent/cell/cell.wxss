@@ -1,0 +1,65 @@
+@import '../../../public/style/iconfont.wxss';
+@import '../common.wxss';
+.cell{
+    height: 100rpx;
+    background: #fff;
+}
+.donowan{
+    font-size: 46rpx;
+}
+/* .flex{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+} */
+/* .container{
+    width: 92%;
+    justify-content: space-between;
+} */
+.prev{
+    width: 40vw;
+    font-size: 34rpx;
+    justify-content: flex-start;
+    align-items: center;
+}
+.icon{
+    width:50rpx;
+    /* height: 40rpx;
+    line-height: 40rpx; */
+    margin-right: 25rpx;
+}
+.after{
+    width: 10vw;
+    height: 100rpx;
+    font-size: 40rpx;
+    color: #333; 
+    justify-content: flex-end;
+}
+.tag{
+    flex: 1;
+    color:#fff;
+}
+.tag.flex{
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: 0 30rpx
+}
+.tagContent{
+    box-sizing: border-box;
+    background: rgb(230, 49, 49);
+    padding: 0 15rpx;
+    border-radius: 30rpx;
+    font-size: 26rpx;
+    max-width: 100%;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+/* 控制底部边框以及margin
+ */
+ .borderBottom{
+    border-bottom: 1rpx solid #ddd;
+ }
+ .marginBottom{
+     margin-bottom: 20rpx;
+ }

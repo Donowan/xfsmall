@@ -1,0 +1,41 @@
+<import src='../../../template/cps/cps.wxml' />
+
+<!-- 顶部导航栏 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">爆款个人中心</view>
+</cu-custom>
+<!-- 刷新组件 -->
+<view style="height: 100rpx;width: 100vw;top:{{CustomBar}}px" class="flex absolute" wx:if="{{refresh}}">
+    <d-refresh loading="{{refresh}}" my-class="ownRefresh"></d-refresh>
+</view>
+<!-- 弹出层 -->
+<!-- <block wx:if="showCopyWechatPop">
+    <van-popup duration="0" custom-class="popupStyle" show="{{ showCopyWechatPop }}" bind:close="closePop"> -->
+        <!-- showPopUpId为0是复制微信模板 -->
+        <!-- <template wx:if="{{showPopUpId=='1'}}" is="popUp" data="{{...changePhoneNumPopUpData}}"></template>
+        <template wx:elif="{{showPopUpId=='0'}}" is="popUp" data="{{...copyWechatPopUpData}}"></template>
+    </van-popup>
+</block> -->
+
+
+<view class="user mainBgColor" >
+    <view class="flex whiteBgColor">
+        <template is="personalCard"  data="{{...personalCardData}}"></template>
+        <!-- <view catchtap="loginIn" class=" flex whiteColor  lSize" style="height: 150rpx;width: 100%" wx:if="{{showBtn}}">
+            <view class="loginBtn">点击此处登录</view>
+        </view> -->
+    </view>    
+</view>
+<!-- margin-top" style="padding-top: 30rpx;" -->
+<view class="flex whiteBgColor">
+    <template  is="incomeCard" data="{{...incomeCardData}}"></template>
+</view>
+
+<view class="cellGrounp">
+    <block wx:for="{{navBarList}}" wx:key="{{index}}">
+        <d-cell branch="{{item.branch}}" type="{{(item.type)}}" navigationBarName="{{item.navigationBarName}}"
+            borderBottom="{{item.borderBottom}}" leftIcon="{{item.leftIcon}}" marginBottom="{{item.marginBottom}}">
+            {{item.tagContent}}
+        </d-cell>
+    </block>
+</view>

@@ -1,0 +1,49 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}" isBack="{{false}}" isCustom="{{true}}"></cu-custom>
+
+<!-- 产品信息 -->
+
+<view class="flex mSize flexCol flexTop blueBgColor whiteColor">
+  <view class="flex header w100">
+    <view class="container h100 flex flexNowrap flexStart">
+      <view class="avatar" style="border-radius: 15rpx" catchtap="enterComodityDetail" data-goods_id="{{orderDetail.saas_deal_spus[0].spu_id}}">
+        <image src="{{orderDetail.saas_deal_spus[0].image}}"></image>
+      </view>
+      <view class="flex h100 flexCol flexNowrap flexTop" style="width:50vw;margin:0 30rpx 0 20rpx;" catchtap="enterOrderDetail" data-order_id="{{orderDetail.order_id}}">
+        <view class="textOverOne sSize w100">{{orderDetail.saas_deal_spus[0].spu_title}}</view>
+        <view class="textOverOne sSize w100" style="margin: 5rpx 0">运单号：{{orderDetail.express_id}}
+        </view>
+        <view class="textOverOne sSize w100">物流状态：{{transInfo.data.status || '暂无物流信息'}}</view>
+      </view>
+      <view class="sSize padding-xx" style="border: 1rpx solid #ffffff;border-radius: 10rpx" catchtap="copyExpressid">
+        复制运单号</view>
+    </view>
+  </view>
+</view>
+
+<!-- 物流信息 -->
+<view class="flex sSize" wx:if="{{transInfo}}">
+  <view style="margin:30rpx auto;border-radius: 20rpx;overflow: hidden;" class="whiteBgColor container">
+    <view class="cu-timeline" style="padding: 20rpx 0;">
+      <block wx:for-item="items" wx:for-index="indexs" wx:for="{{transInfo.data.messages}}" wx:key="{{indexs}}">
+        <view class="cu-time">{{items.day}}</view>
+        <view class="cu-item cur {{(indexs==0 && index==0)?'text-blue':''}}  cuIcon-noticefill"  wx:for="{{items.messages}}" wx:key="{{index}}">
+          <view class="content {{(indexs==0 && index==0)?'bg-blue':''}} shadow-blur">
+            <text>{{item.time}}</text> {{item.context}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+
+<view class="cartEmpty flex flexAround" hidden="{{transInfo}}">
+  <view class="icon">
+      <image src="{{baseImgUrl}}/cartEmpty.png" mode="aspectFit"></image>
+  </view>
+  <view class="flex flexCol">
+      <view class="title">没有查询到物流信息哦T.T</view>
+          <view class="descript" style="margin-top:15rpx">请前往官网查询吧</view>
+  </view>
+      
+</view>

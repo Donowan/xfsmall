@@ -1,0 +1,20 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+        <view slot="content">我的订单</view>
+</cu-custom>
+
+<!-- 列表导航 -->
+<view style="position: sticky;top:{{CustomBar}}px;z-index: 100">
+        <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+            <view class="cu-item {{item.id==curreyId?'redColor cur':''}}" wx:for="{{orderListNav}}" wx:key="{{item.id}}" bindtap="tabSelect"
+                data-index="{{index}}" data-id="{{item.id}}">
+                {{item.title}}
+            </view>
+        </scroll-view>
+</view>
+
+<!-- 订单列表 -->
+<d-order-list loading="{{loading}}" complete="{{complete}}" orderList="{{orderList}}"></d-order-list>
+
+<!-- 回到顶部 -->
+<d-back-top-btn visual="{{visual}}" bottom="110"></d-back-top-btn>

@@ -1,0 +1,33 @@
+@import '../common.wxss';
+.shop-icon{
+    width:80rpx;
+    height:80rpx;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.shop-bar{
+    margin: 20rpx 0;
+    padding: 20rpx 0;
+}
+.service{
+    margin-top: 20rpx;
+}
+
+.commodityBar{
+    height: 80rpx;
+    width: 100vw;
+    margin-bottom: 20rpx;
+}
+.commodityBar .blank{
+    height: 40%;
+    opacity: 0.8;
+    width: 10rpx;
+}
+.commodityBarTitle{
+    margin:  0 20rpx;
+}
+.enterShopBtn{
+    /* padding: 10rpx 15rpx;
+    border-radius: 15rpx;
+    border: 1rpx solid orange; */
+}

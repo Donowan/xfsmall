@@ -1,0 +1,56 @@
+<import src="/template/commodityDetail/commodityDetail.wxml" />
+
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">商品详情</view>
+</cu-custom>
+
+<!-- 回到顶部 -->
+<d-back-top-btn visual="{{visual}}" bottom="{{130}}"></d-back-top-btn>
+
+<!-- 获取用户信息 -->
+<d-dialog title="{{userInFoDialog.title}}" show="{{userInFoDialog.show}}" type="{{userInFoDialog.type}}"
+    bind:onGetInfoHandle="getUserInfo"></d-dialog>
+
+<!-- 获取手机号码 -->
+<d-dialog title="{{phoneNumberlDialog.title}}" show="{{phoneNumberlDialog.show}}" type="{{phoneNumberlDialog.type}}"
+    bind:onGetInfoHandle="getPhoneNumber"></d-dialog>
+
+<!-- 购物车 -->
+<d-my-cart bottom="100" catchawakenHandle="awaken"></d-my-cart>
+
+<!-- 分享按钮 -->
+<d-share wx:if="{{showShareDialog}}" catchcloseShareDialogHandle="closeShareDialog"></d-share>
+
+<view class="commodity mainBgColor">
+
+    <!-- 商品简介（轮播以及价格） -->
+    <template is="commodity" data="{{...commodityDetailData.shopInfo}}"></template>
+
+    <!-- 选择物流 -->
+    <!-- <view style="margin-bottom: 5rpx">
+        <d-select-transMode  transMode="{{commodityDetailData.transMode}}" catchconfirmTransModeHandle="confirmTransMode"></d-select-transMode>
+    </view> -->
+
+    <!-- 选择规格 -->
+    <!-- <d-select-specification specification="{{commodityDetailData.specification}}" catchconfirmSpecificationHandle="confirmSpecification"></d-select-specification> -->
+
+    <!-- 评价 -->
+    <view style="margin-bottom:15rpx">
+        <d-evaluate showMore="{{true}}" length="{{commodityDetailData.evaluateLength}}"
+            evaluateData="{{commodityDetailData.evaluate}}"></d-evaluate>
+    </view>
+
+    <!-- 店铺信息及详情 -->
+    <d-shop-info shopInfo="{{commodityDetailData.shopInfo}}"></d-shop-info>
+
+    <!-- 商品底部导航条 -->
+    <d-goods-action catchaddCartHandle="addCartByGoodsAction" catchbuyNowHandle="buyNow" catchawakenHandle="awaken">
+    </d-goods-action>
+
+</view>
+
+<!-- 商品规格弹出窗 -->
+<d-edit-commodity wx:if="{{showModal}}" goods_id="{{commodityDetailData.shopInfo.goods_id}}"
+    catchhideModalHandle="_hideModal" bottomBar="{{bottomBar}}">
+</d-edit-commodity>

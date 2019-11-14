@@ -1,0 +1,108 @@
+{
+  "pages": [
+    "pages/template/template",
+    "pages/index/index",
+    "pages/index/commodityDetail/commodityDetail",
+   
+    "pages/user/user",
+    "pages/sort/sort",
+    "pages/myCart/myCart",
+    "pages/search/search",
+    "pages/search/searchDetail/searchDetail",
+    "pages/editOrder/editOrder",
+    "pages/manageAddress/addAddress/addAddress",
+    "pages/manageAddress/editAddress/editAddress",
+    "pages/manageAddress/chooseAddress/chooseAddress",
+    "pages/orderList/orderList",
+    "pages/orderList/orderDetail/orderDetail",
+    "pages/transInfo/transInfo",
+    "pages/allTool/allTool",
+    "pages/login/login",
+    "pages/specialSearch/specialSearch",
+    "pages/paySuccess/paySuccess",
+    "pages/evaluate/addEvaluate/addEvaluate",
+    "pages/userBranch/coupon/coupon",
+    "pages/userBranch/vipCard/vipCard",
+    "pages/userBranch/myAddress/myAddress",
+    "pages/userBranch/myEvaluate/myEvaluate",
+    "pages/userBranch/aboutUs/aboutUs",
+    "pages/userBranch/inComeDetail/inComeDetail",
+    "pages/userBranch/income/income",
+    "pages/userBranch/distribution/distribution",
+    "pages/userBranch/withdrawal/withdrawal",
+    "pages/userBranch/otherOrderDetail/otherOrderDetail",
+    "pages/userBranch/withdrawalStatus/withdrawalStatus",
+    "pages/evaluate/allEvaluate/allEvaluate",
+    "pages/template/user/user",
+    "pages/template/user/order/order",
+    "pages/template/commodityDetail/commodityDetail",
+    "pages/createPoster/createPoster",
+    "pages/index/activeList/activeList"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 12000,
+    "downloadFile": 12000
+  },
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "星风尚全网爆品",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#FF8A00",
+    "list": [
+      
+      {
+        "pagePath": "pages/template/template",
+        "text": "全网爆款",
+        "iconPath": "/public/images/tabbar/template.png",
+        "selectedIconPath": "/public/images/tabbar/template_cur.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "星风尚",
+        "iconPath": "/public/images/tabbar/indexs.png",
+        "selectedIconPath": "/public/images/tabbar/indexs_cur.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/public/images/tabbar/user.png",
+        "selectedIconPath": "/public/images/tabbar/user_cur.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/component/colorui/components/cu-custom",
+    "d-swiper": "/component/customComponent/swiper/swiper",
+    "d-dialog": "/component/customComponent/dialog/dialog",
+    "d-loading": "/component/customComponent/loading/loading",
+    "d-refresh": "/component/customComponent/refresh/refresh",
+    "d-share": "/component/customComponent/shareDialog/shareDialog",
+    "d-share-poster": "/component/customComponent/sharePoster/sharePoster",
+    "d-category-list": "/component/customComponent/categoryList/categoryList",
+    "d-back-top-btn": "/component/customComponent/backTopBtn/backTopBtn",
+    "d-edit-commodity": "/component/customComponent/editCommodity/editCommodity",
+    "d-commodity-card": "/component/customComponent/commodityCard/commodityCard",
+    "d-operation-order": "/component/customComponent/operationOrder/operationOrder",
+    "d-evaluate-list": "/component/customComponent/evaluateList/evaluateList",
+    "d-my-cart":"/component/customComponent/enterMyCart/enterMyCart",
+    "van-card": "/component/dist/card/index"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx32540bd863b27570",
+    "wx13e41a437b8a1d2e",
+    "wxe9714e742209d35f",
+    "wxe964260af9330942",
+    "wx681b1e78da02dd16"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

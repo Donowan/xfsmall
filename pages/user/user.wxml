@@ -1,0 +1,42 @@
+<!-- 顶部导航栏 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">个人中心</view>
+</cu-custom>
+
+<!-- 获取用户信息 -->
+<d-dialog title="{{userInFoDialog.title}}" show="{{userInFoDialog.show}}" type="{{userInFoDialog.type}}"
+    bind:onGetInfoHandle="getUserInfo"></d-dialog>
+
+<!-- 获取手机号码 -->
+<d-dialog title="{{phoneNumberlDialog.title}}" show="{{phoneNumberlDialog.show}}" type="{{phoneNumberlDialog.type}}"
+    bind:onGetInfoHandle="getPhoneNumber"></d-dialog>
+
+<!-- 用户卡片 -->
+<view>
+    <d-user-card showLoginBtn="{{!showUserInfoMation}}" information="{{information}}" catchawakenHandle="awaken">
+    </d-user-card>
+
+    <!-- 退出登陆 -->
+    <navigator class="exitBtn flex" catchtap="exit" style="top:{{CustomBar}}px" wx:if="{{showUserInfoMation}}"
+        target="miniProgram" open-type="exit">
+        <view class="exitBtnLabel flex padding-xx">
+            <view class=" whiteColor">退出登录</view>
+            <view class="donowan icontuichu exit whiteColor"></view>
+        </view>
+    </navigator>
+</view>
+
+<!-- 我的订单及物流信息 -->
+<view style="margin-top: 35rpx;" wx:if="{{showUserInfoMation}}">
+    <d-order-status calOrderStatus="{{calOrderStatus}}"></d-order-status>
+</view>
+
+<!-- 必备工具 -->
+<!-- <view style="margin:30rpx 0">
+    <d-tools></d-tools>
+</view> -->
+
+<!-- cell列表 -->
+<view style="margin-top:{{showUserInfoMation?'30rpx':'126rpx'}}">
+    <d-cell-user-template catchawakenHandle="awaken"></d-cell-user-template>
+</view>

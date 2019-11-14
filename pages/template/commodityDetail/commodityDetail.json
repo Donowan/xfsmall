@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "d-goods-action":"/component/customComponent/templateGoodsAction/templateGoodsAction"
+  }
+}

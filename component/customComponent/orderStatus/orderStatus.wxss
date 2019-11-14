@@ -1,0 +1,24 @@
+@import '../common.wxss';
+.orderStatus,.transStatus{
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+.transStatus{
+    padding: 20rpx 0;
+    margin: 20rpx 0 10rpx 0;
+}
+.transStatus .icon{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 15rpx;
+    overflow: hidden;
+}
+.dbadge{
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1rpx solid orangered;
+    right:-10rpx;
+    top:-10rpx
+}

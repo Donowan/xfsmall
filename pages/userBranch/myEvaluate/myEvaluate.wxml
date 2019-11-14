@@ -1,0 +1,18 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<import src="/template/element/element" />
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+        <view slot="content">我的评价</view>
+</cu-custom>
+
+<!-- 回到顶部 -->
+<d-back-top-btn visual="{{visual}}" bottom="120"></d-back-top-btn>
+
+<!-- 刷新组件 -->
+<d-refresh loading="{{refresh}}"></d-refresh>
+
+<!-- 评价列表 -->
+<d-evaluate-list evaluate="{{myEvaluate}}" clickAvatarType="enterUser" haveCommodityCard="{{true}}"></d-evaluate-list>
+
+<!-- 加载组件 -->
+<d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>

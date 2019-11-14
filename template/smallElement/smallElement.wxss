@@ -1,0 +1,54 @@
+/* 优惠券样式 */
+.coupon{
+    border: 1px solid #FF6600;
+    border-radius: 4rpx
+}
+.coupon .padding{
+    padding: 0rpx 10rpx;
+}
+.coupon .couponValue::before{
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 3rpx;
+    transform: translate(-50%,-50%);
+    width: 16rpx;
+    height: 16rpx;
+    background: white;
+    border-radius: 50%;
+}
+
+
+/* 分享按钮样式 */
+.shareBtn{
+    /* height: 60rpx; */
+    padding: 10rpx 20rpx;
+    color: white;
+    font-size: 24rpx;
+    flex: 1;
+    border-radius: 40rpx
+}
+.share{
+    margin:-4rpx 0 0 4rpx;
+}
+
+
+/* 空白数据样式 */
+.empty .icon{
+    width: 40vw;
+    height: 40vw;
+}
+
+/* 评分样式 */
+.oneStar{
+    width:30rpx;
+    height: 30rpx;
+}
+.avg_icon{
+    background: orange;
+    padding:  2rpx;
+    border-radius: 5rpx;
+}
+.evaluateItem{
+    margin-right: 6rpx
+}

@@ -1,0 +1,58 @@
+<!-- <block>
+    <view class="cu-modal {{show?'show':''}}">
+        <view class=" cu-dialog">
+            <view class="content ">
+                <view class="flex dialogTitle title bg-gradual-orange">
+                    <view class="lSize">
+                        授权提示
+                    </view>
+                </view>
+                <view class="flex mSize " style="padding: 50rpx 0">
+                    {{title}}           
+                </view>
+                <view class="authorization  flex">
+                    <view class="closeBtn  flex lSize" wx:if="{{type == 'getUserInfo'}}">
+                        <view class="flex  mSize"  catchtap="_closeDialog" style="flex: 1;height: 100%">取消</view>
+                        <button  class="button  mSize" open-type="getUserInfo"
+                            bindgetuserinfo="getInfo" style="flex: 1;;color:{{themeColor}};border-left:1rpx solid #eee"> 确定</button>
+                    </view>
+                    <view class="closeBtn  flex lSize"   wx:if="{{type == 'getPhoneNumber'}}">
+                       <view class="flex  mSize" catchtap="_closeDialog" style="flex: 1;height: 100%">取消</view>
+                        <button  class="button  mSize" open-type="getPhoneNumber"
+                            bindgetphonenumber="getInfo" style="flex: 1;color:{{themeColor}};border-left:1rpx solid #eee"> 确定</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>  -->
+
+<block>
+    <!-- 这里必须用hidden不然捕捉会有问题 -->
+    <view hidden="{{!show}}">
+        <view class="dialog">
+            <view class="content whiteBgColor">
+                <view class="flex dialogTitle title bg-gradual-orange">
+                    <view class="lSize">
+                        授权提示
+                    </view>
+                </view>
+                <view class="flex mSize " style="padding: 50rpx 0">
+                    {{title}}           
+                </view>
+                <view class="authorization  flex">
+                    <view class="closeBtn  flex lSize" wx:if="{{type == 'getUserInfo'}}">
+                        <view class="flex  mSize"  catchtap="_closeDialog" style="flex: 1;height: 100%">取消</view>
+                        <button  class="button  mSize" open-type="getUserInfo"
+                            bindgetuserinfo="getInfo" style="flex: 1;;color:{{themeColor}};border-left:1rpx solid #eee"> 确定</button>
+                    </view>
+                    <view class="closeBtn  flex lSize"   wx:if="{{type == 'getPhoneNumber'}}">
+                       <view class="flex  mSize" catchtap="_closeDialog" style="flex: 1;height: 100%">取消</view>
+                        <button  class="button  mSize" open-type="getPhoneNumber"
+                            bindgetphonenumber="getInfo" style="flex: 1;color:{{themeColor}};border-left:1rpx solid #eee"> 确定</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</block> 

@@ -1,0 +1,67 @@
+<view  wx:if="{{type=='view'}}" class="flex cell {{marginBottom?'marginBottom':''}}"  catchtap="enterBranchPage" data-branch="{{branch}}">
+    <view class="container flex {{borderBottom?'borderBottom?':''}}">
+        <!-- 左侧preicon -->
+        <view class="prev flex">
+            <view class="icon">
+                <icon class="donowan themeColor lSize {{leftIcon}}"></icon>
+                <!-- <image  mode="widthFix" src="{{leftIcon}}"></image> -->
+                <!-- <image  mode="widthFix" src="https://ps.ssl.qhimg.com/dmsmty/74_74_100/t013c5b3055310d62d7.png"></image> -->
+            </view>
+            <text style='font-size:34rpx'>{{navigationBarName}}</text>
+        </view>
+        <!-- 中间标签 -->
+        <view class="tag flex">
+            <view class="tagContent">
+                <slot></slot>
+            </view>
+        </view>
+        <view class="after flex">
+            <view class="donowan iconright"></view>
+        </view>
+    </view>
+</view>
+<button  open-type="contact" wx:if="{{type=='button'}}" class="flex cell {{marginBottom?'marginBottom':''}}"  catchtap="enterBranchPage" data-branch="{{branch}}">
+    <view class="container flex {{borderBottom?'borderBottom?':''}}">
+        <!-- 左侧preicon -->
+        <view class="prev flex">
+            <view class="icon">
+                <icon class="donowan themeColor lSize {{leftIcon}}"></icon>
+                <!-- <image  mode="widthFix" src="{{leftIcon}}"></image> -->
+                <!-- <image  mode="widthFix" src="https://ps.ssl.qhimg.com/dmsmty/74_74_100/t013c5b3055310d62d7.png"></image> -->
+            </view>
+            <text style='font-size:34rpx' class="blackColor">{{navigationBarName}}</text>
+        </view>
+        <!-- 中间标签 -->
+        <view class="tag flex">
+            <view class="tagContent">
+                <slot></slot>
+            </view>
+        </view>
+        <view class="after flex">
+            <view class="donowan iconright"></view>
+        </view>
+    </view>
+</button>
+
+<navigator target="miniProgram"  open-type="exit" wx:if="{{type=='navigator'}}" class="flex cell {{marginBottom?'marginBottom':''}}"  catchtap="enterBranchPage" data-branch="{{branch}}">
+    <view class="container flex {{borderBottom?'borderBottom?':''}}">
+        <!-- 左侧preicon -->
+        <view class="prev flex">
+            <view class="icon">
+                <icon class="donowan themeColor lSize {{leftIcon}}"></icon>
+                <!-- <image  mode="widthFix" src="{{leftIcon}}"></image> -->
+                <!-- <image  mode="widthFix" src="https://ps.ssl.qhimg.com/dmsmty/74_74_100/t013c5b3055310d62d7.png"></image> -->
+            </view>
+            <text style='font-size:34rpx' class="blackColor">{{navigationBarName}}</text>
+        </view>
+        <!-- 中间标签 -->
+        <view class="tag flex">
+            <view class="tagContent">
+                <slot></slot>
+            </view>
+        </view>
+        <view class="after flex">
+            <view class="donowan iconright"></view>
+        </view>
+    </view>
+</navigator>

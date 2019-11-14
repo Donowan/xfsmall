@@ -1,0 +1,54 @@
+<import src='../../../template/commodity/commodity.wxml' />
+
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}" isBack="{{false}}" isCustom="{{true}}">
+    <view slot="content">搜索结果</view>
+</cu-custom>
+
+<!-- 回到顶部 -->
+<d-back-top-btn visual="{{visual}}" bottom="150"></d-back-top-btn>
+
+<!-- 获取手机号码 -->
+<d-dialog title="{{phoneNumberlDialog.title}}" show="{{phoneNumberlDialog.show}}" type="{{phoneNumberlDialog.type}}"
+    src="{{phoneNumberlDialog.src}}" bind:onGetInfoHandle="getPhoneNumber"></d-dialog>
+
+
+<!-- 获取用户信息 -->
+<d-dialog title="{{userInFoDialog.title}}" show="{{userInFoDialog.show}}" type="{{userInFoDialog.type}}"
+    src="{{userInFoDialog.src}}" bind:onGetInfoHandle="getUserInfo"></d-dialog>
+
+<view class="flex topArea whiteBgColor" style="position: sticky;top:{{CustomBar}}px;z-index: 100">
+    <!-- 搜索框组件 -->
+    <!-- <d-search catchsearchHandle="getSearchCommodity" ></d-search> -->
+    <d-top-search jumpUrl="/pages/specialSearch/specialSearch" my-class="topAreaCurreyHeight" color="white"></d-top-search>
+</view>
+
+<!-- 类目分类 -->
+<d-label-navigation tabsHeight="90" curreyActive="{{curreyActive}}" catchonchange="changeCurreyActive"
+    tabs="{{['拼多多','京东','唯品会','苏宁']}}"></d-label-navigation>
+
+<!--筛选组件 -->
+<!-- <d-sort catchfilterHandle="filter"></d-sort> -->
+
+
+<!-- <view style="font-size:20rpx;height: 40rpx;line-height: 40rpx;text-indent: 20rpx" class="red greyBgColor" >*请注意搜索结果的店名,是否与您复制标题的店名一致</view> -->
+
+
+<d-product-list type="{{curreyActive+1}}" shopIcon="{{curreyActive==0?'title_tag_icon':curreyActive==1?'title_tag_icon_jd':curreyActive==2?'title_tag_icon_vph':'title_tag_icon_sn'}}"
+    useSearch="{{true}}" productData="{{commodityData}}" catchawakenHandle="awaken" hideShopName="{{false}}">
+</d-product-list>
+
+<!-- 加载组件 -->
+<d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>
+<!-- 搜索商品为空的情况 -->
+<view wx:if="{{commodityData.length==0 && commodityData!=null}}">
+    <view class="cartEmpty flex flexAround">
+        <view class="icon">
+            <image src="{{baseImgUrl}}/cartEmpty.png" mode="aspectFit"></image>
+        </view>
+        <view class="flex flexCol">
+            <view class="title">没有相关商品哦</view>
+            <view class="descript" style="margin-top:15rpx">请换个词搜索吧~</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "d-top-search": "/component/customComponent/topSearch/topSearch",
+    "d-commodity-card":"/component/customComponent/commodityCard/commodityCard",
+    "d-tips": "/component/customComponent/addTip/index"
+  }
+}

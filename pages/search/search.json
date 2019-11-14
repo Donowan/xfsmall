@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "d-search": "/component/customComponent/search/search"
+  },
+  "navigationBarTitleText": "搜索"
+}

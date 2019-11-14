@@ -1,0 +1,95 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 收益 -->
+<scroll-view class="mainBgColor" scroll-y="{{true}}" style="height:100vh">
+    <view style="height: 10rpx"></view>
+    <view class="whiteBgColor lastMonth">
+        <view class="flex flexCol" data-tip='00' catchtap="_showtip">
+            <view class="flex mSize title">
+                <view>累计预估收益</view>
+                <view class="donowan iconquestion lSize"></view>
+            </view>
+            <view class="lSize flex" style="height: 100rpx;">￥{{filter.KeepTwoDecimals(inComeData.evaluateTotal)}}
+            </view>
+        </view>
+
+        <view class="flex flexNowrap flexBetween" style="width:100vw">
+            <view class="flex flexCol lastMonthItem flexBetween" data-tip='0' catchtap="_showtip">
+                <view class="flex sSize title">
+                    <view>上月付款订单数</view>
+                    <view class="donowan iconquestion mSize"></view>
+                </view>
+                <view class="lSize">{{inComeData.lastMonth.num}}</view>
+            </view>
+            <view class="flex flexCol lastMonthItem flexBetween" data-tip='1' catchtap="_showtip">
+                <view class="flex sSize title">
+                    <view>上月预估收益</view>
+                    <view class="donowan iconquestion mSize"></view>
+                </view>
+                <view class="lSize">￥{{filter.KeepTwoDecimals(inComeData.lastMonth.price)}}</view>
+            </view>
+            <view class="flex flexCol lastMonthItem flexBetween" data-tip='2' catchtap="_showtip">
+                <view class="flex sSize title">
+                    <view>上月预估结算</view>
+                    <view class="donowan iconquestion mSize"></view>
+                </view>
+                <view class="lSize">￥{{filter.KeepTwoDecimals(inComeData.lastMonth.settle)}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view style="margin: 30rpx 0;">
+        <scroll-view scroll-x class="bg-white nav">
+            <view class="flex text-center">
+                <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{dayList}}" wx:key
+                    bindtap="_changeType" data-id="{{index}}">
+                    {{item.title}}
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="flex">
+        <view class="whiteBgColor flex payMonth">
+
+            <view class="flex flexCol lastMonthItem flexBetween" data-tip='3' catchtap="_showtip">
+                <view class="flex sSize title">
+                    <view>付款订单数</view>
+                    <view class="donowan iconquestion mSize"></view>
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==0}}">{{inComeData.today.num}}</view>
+                <view class="lSize" wx:if="{{activeIndex==1}}">{{inComeData.yesterDay.num}}</view>
+                <view class="lSize" wx:if="{{activeIndex==2}}">{{inComeData.severnDay.num}}</view>
+                <view class="lSize" wx:if="{{activeIndex==3}}">{{inComeData.thirtyDay.num}}</view>
+            </view>
+            <view class="flex flexCol lastMonthItem flexBetween" data-tip='4' catchtap="_showtip">
+                <view class="flex sSize title">
+                    <view>付款预估收益</view>
+                    <view class="donowan iconquestion mSize"></view>
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==0}}">￥{{filter.KeepTwoDecimals(inComeData.today.price)}}
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==1}}">￥{{filter.KeepTwoDecimals(inComeData.yesterDay.price)}}
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==2}}">￥{{filter.KeepTwoDecimals(inComeData.severnDay.price)}}
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==3}}">￥{{filter.KeepTwoDecimals(inComeData.thirtyDay.price)}}
+                </view>
+            </view>
+            <view class="flex flexCol lastMonthItem flexBetween" data-tip='5' catchtap="_showtip">
+                <view class="flex sSize title">
+                    <view>结算预估结算</view>
+                    <view class="donowan iconquestion mSize"></view>
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==0}}">￥{{filter.KeepTwoDecimals(inComeData.today.settle)}}
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==1}}">￥{{filter.KeepTwoDecimals(inComeData.yesterDay.settle)}}
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==2}}">￥{{filter.KeepTwoDecimals(inComeData.severnDay.settle)}}
+                </view>
+                <view class="lSize" wx:if="{{activeIndex==3}}">￥{{filter.KeepTwoDecimals(inComeData.thirtyDay.settle)}}
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+</scroll-view>

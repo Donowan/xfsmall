@@ -1,0 +1,68 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- <import src='../../../template/commodity/commodity' /> -->
+<import src='../../../template/smallElement/smallElement' />
+
+<view class="flex">
+    <view style="width: 95%" class="commodityTemplate whiteBgColor relative" wx:for="{{productData}}"
+        wx:key='{{item.goods_id}}'>
+        <view class="flex" catchtap="enterCommodityDetail" data-commodity="{{item.goods_id}}">
+            <view class=" flex flexNowrap">
+                <view class="leftContent custom-image">
+                    <image lazy-load="{{true}}" src="{{item.commodityLink}}"></image>
+                </view>
+                <view class="rightContent custom-right-content-height">
+                    <view class="flex flexCol flexNowrap flexBetween" style="height: 100%">
+                        <view class="title mSize textOver textOverTwo" style="white-space: normal;word-break: break-all;">
+                            <view class="{{shopIcon}}"></view>{{item.title}}
+                        </view>
+                        <view class="flex flexStart flexNowrap  sSize" style="width: 100%">
+                            <view style="margin-right: 25rpx;" wx:if="{{item.coupon!=0}}">
+                                <template  is="coupon" data="{{...item}}"></template>
+                            </view>
+                            <template is="gain" data="{{...item}}"></template>
+                            <!-- <view class="sSize flex" style="margin-left: 10rpx;color: orangered;flex: 1;text-align: right">
+                                奖{{filter.KeepTwoDecimals(item.gain)}}元
+                            </view> -->
+                        </view>
+                        <view class="flex subTitle mSize flexBetween flexNowrap" style="width: 100%">
+                            <view class="flex flexBetween flexNowrap" style="width: 100%">
+                                <view class=" red lSize flex">
+                                    <view class="flex redColor"  style="margin-right: 10rpx">
+                                        <view>￥</view>
+                                    <view>{{filter.KeepTwoDecimals(item.currentPrice)}}</view>    
+                                    </view>
+                                    <view class="delete sSize">￥{{filter.KeepTwoDecimals(item.price)}}</view>    
+                                </view>
+                                
+                                <view wx:if="{{showSale}}" class="subTitle sSize" style="padding-right: 35rpx;">
+                                    已售{{item.salesVolume>10000?filter.KeepTwoDecimals(item.salesVolume/10000)+'万':item.salesVolume}}
+                                    件</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="flex flexBetween flexNowrap" style="margin-top: 20rpx" wx:if="{{!hideShopName && item.shopName}}">
+
+            <view class="subTitle mSize relative {{hideShopName?'transparent':''}} textOverOne"
+                style="max-width: 50vw; text-indent: 20rpx;">{{item.shopName}}
+                <view wx:if="{{!hideShopName && item.shopName}}" class="absolute title"
+                    style="width: 10rpx;height:10rpx;background: #999;top:50%;left: 0;border-radius: 50%;margin-top: -5rpx">
+                </view>
+            </view>
+
+            <!-- <view class="subTitle  mSize flex">
+                <template is='shareBtn' wx:if="{{isPhoneNumber}}" data="{{...item}}"></template>
+                <view  catchtap="showGetUserInfoDialog">
+                        <template is='noShareBtn' wx:if="{{!isPhoneNumber}}" data="{{...item}}"></template>
+                </view>
+                
+            </view> -->
+        </view>
+        <!-- <view class="flex gouwucheIcon ">
+            <text class="donowan icongouwuche fonsts"></text>
+        </view> -->
+    </view>
+</view>

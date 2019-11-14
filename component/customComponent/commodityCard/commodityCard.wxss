@@ -1,0 +1,71 @@
+@import '../common.wxss';
+.commodity{
+    width: 45vw;
+    padding:20rpx 0 5rpx;
+    margin-bottom:20rpx;
+    border-radius:15rpx;
+}
+.commodity.commodityCol{
+    width:96vw;
+    padding:0;
+    margin-bottom:25rpx;
+}
+
+.icon{
+    width: 40vw;
+    height: 40vw;
+}
+
+.commodityCol .icon{
+    width: 30vw;
+    height: 30vw;
+}
+.commodityTitle,.commodityPrice{
+    padding: 0 2vw;
+    margin-top: 15rpx;
+}
+.commodity.commodityCol .commodityTitle{
+    margin-top:0rpx !important;
+}
+.commodityTitle{
+  height: 80rpx;
+    line-height: 40rpx;
+}
+.commodityPrice{
+    width: 100%;
+    margin-top: 0;
+}
+.addCart{
+    /* width: 46rpx;
+    height: 46rpx;
+    border-radius: 23rpx;
+    overflow: hidden;
+    margin: 15rpx; */
+    margin: 15rpx;
+    font-size: 40rpx;
+}
+.commodityCol .addCart{
+    margin: 20rpx;
+    font-size: 47rpx;
+}
+.commodityBar{
+    height: 90rpx;
+    width: 100vw;
+    margin-bottom: 20rpx;
+}
+.commodityBar .blank{
+    height: 40%;
+    opacity: 0.8;
+    width: 10rpx;
+}
+.commodityBarTitle{
+    margin:  0 20rpx;
+}
+.cartEmpty{
+    width:100vw;
+    height:50vw;
+}
+.cartEmpty .icon{
+    width:100vw;
+    height:20vw;
+}

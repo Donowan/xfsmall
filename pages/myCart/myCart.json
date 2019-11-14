@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "d-cart": "/component/customComponent/myCart/myCart",
+    "d-edit-commodity":"/component/customComponent/editCommodity/editCommodity"
+  }
+}

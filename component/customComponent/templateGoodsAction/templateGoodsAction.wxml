@@ -1,0 +1,47 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<view class="GoodsAction flex">
+    <view class="container">
+        <view class="flex flexBetween">
+            <view class=" sSize flex flexCol home" catchtap='goHome' style="padding: 20rpx 10rpx">
+                <view class="icon">
+                    <image src="{{baseImgUrl}}/homes.png"></image>
+                </view>
+                <text>首页</text>
+            </view>
+            <view class=" sSize flex flexCol home " catchtap='creatCommodityPost' style="padding: 20rpx 10rpx">
+                <view class="icon" style="width: 30rpx">
+                    <image src="{{baseImgUrl}}/sharePost.png"></image>
+                </view>
+                <text>海报</text>
+            </view>
+            <!-- 右侧导购栏目 -->
+            <view class="flex actionBar" style="flex: 0.8">
+                <!-- <button class="mainBgColor flex shareBtn" open-type='share'>分享
+                        <view class="share  mSize whiteColor flex">
+                            <text class="donowan iconshare"></text>  
+                        </view>
+                    </button> -->
+                <button wx:if="{{isPhoneNumber}}" open-type='share' class="orangeBgColor flex  sSize shareBtn">
+                    <!-- <view class="share  whiteColor flex" style="margin-right: 15rpx;font-size: 40rpx">
+                                    <text class="donowan iconshare"></text>  
+                                </view> -->
+                    <text>分享奖 ￥{{filter.KeepTwoDecimals(shareGain)}}</text>
+
+                </button>
+                <view catchtap="_share" wx:if="{{!isPhoneNumber}}" class="orangeBgColor flex  sSize shareBtn">
+
+                    <text>分享奖 ￥{{filter.KeepTwoDecimals(shareGain)}}</text>
+
+                </view>
+
+                <view catchtap='goingBuy' class="goingBuy sSize flex " style="background: {{themeColor}}">
+                    <!-- <view class="icon flex">
+                                    <view class="donowan iconarrow-" style="font-size: 50rpx"></view>
+                                </view> -->
+                    <text>自购省 ￥{{filter.KeepTwoDecimals(gain)}}</text>
+
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

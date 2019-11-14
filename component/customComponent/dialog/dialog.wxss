@@ -1,0 +1,65 @@
+@import '../../../app.wxss';
+.dialog{
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+}
+.dialog .dialogTitle,.cu-dialog .dialogTitle{
+    height: 70rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+}
+
+.dialog .content{
+    position: relative;
+    width: 80%;
+    top: 40%;
+    border-radius: 20rpx;
+    overflow:hidden;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.cu-dialog {
+    width: 80% !important;
+    border-radius: 20rpx !important;
+}
+.dialog .icon{
+    width: 40vw;
+    height: 40vw;
+    margin: 20rpx 0;
+}
+/* .dialogIcon{
+    width: 40vw;
+    height: 40vw;
+    margin: 20rpx 0;
+} */
+.closeBtn{
+    width: 100%;
+    height: 100%;
+    z-index:3;
+    left: 0;
+    top: 0
+}
+.closeIcon{
+    position: absolute;top:5rpx;right:5rpx;
+}
+.button:after{
+    border: none;
+}
+.authorization{
+    height: 100rpx;
+    border-top: 1rpx solid #eee;
+}
+.button{
+    /* position: absolute !important; */
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 100rpx;
+    background: none;
+    width: 100%;
+    height: 100%;
+    /* top: 0; */
+    /* left: 0; */
+}

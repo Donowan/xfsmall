@@ -1,0 +1,22 @@
+/* component/donowan/loading/loading.wxss */
+.red{
+    color:#e42222
+}
+/* 文字 */
+.sSize{
+    font-size: 24rpx;
+    margin-left: 12rpx;
+}
+/* 弹性盒 */
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.dcell{
+    height: 80rpx;
+    line-height: 80rpx;
+    letter-spacing: 5rpx;
+    color: #ccc;
+}

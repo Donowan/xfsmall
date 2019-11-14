@@ -1,0 +1,6 @@
+<view>
+    <view class="flex" hidden="{{!loading}}">
+        <van-loading type="spinner"  color="{{themeColor}}" size="40rpx" />
+        <view class="themeColor sSize" style="margin-left: 10rpx"> 正在刷新...</view>
+    </view>
+</view>

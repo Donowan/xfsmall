@@ -1,0 +1,9 @@
+.inComeCard{
+    height: 200rpx;
+}
+.incomePrice{
+    font-size: 90rpx;
+}
+.userList{
+    width: 100vw;
+}

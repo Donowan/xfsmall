@@ -1,0 +1,7 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">收益明细</view>
+</cu-custom>
+<!-- 收益 -->
+<d-user-income></d-user-income>

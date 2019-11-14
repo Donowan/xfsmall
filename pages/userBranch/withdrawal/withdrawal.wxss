@@ -1,0 +1,17 @@
+.formInput{
+    border-bottom: 1rpx solid #f1f1f1;
+}
+input{
+    color: orange;
+    font-size: 50rpx;
+}
+.card{
+    border-radius:20rpx;
+    overflow:hidden;
+}
+.withdrawalBtn{
+    width: 90vw;
+    border-radius: 15rpx;
+    overflow: hidden;
+    height: 90rpx;
+}

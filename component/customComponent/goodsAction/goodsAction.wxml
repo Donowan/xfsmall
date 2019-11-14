@@ -1,0 +1,16 @@
+<view class="goods-action flex whiteColor">
+    <view class="button flex flexCol flexAround icon h100 sSize whiteBgColor descript" catchtap="_enterIndex" >
+        <view class="donowan iconshouyex bold"></view>
+        <view>首页</view>
+    </view>
+    <button open-type="contact" class="button flex flexCol flexAround icon h100 sSize whiteBgColor descript">
+        <view class="donowan iconlianxikefu bold"></view>
+        <view>客服</view>
+    </button>
+    <!-- <button catchtap="_enterShop" class="button flex flexCol flexAround icon h100 sSize whiteBgColor descript">
+        <view class="donowan icondianpu bold"></view>
+        <view>店铺</view>
+    </button> -->
+    <view class="flex orangeBgColor h100" style="flex: 1" catchtap="_addCart">加入购物车</view>
+    <view class="flex redBgColor h100" style="flex: 1" catchtap="_buy">立即购买</view>
+</view>

@@ -1,0 +1,19 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}" isBack="{{false}}" isCustom="{{true}}"></cu-custom>
+<!-- 这里名字取错了，应该是订单操作返回结果页面 -->
+
+
+<view class="bg-gradual-orange flex flexCol flexNowrap topStatus">
+    <view class="flex whiteColor">
+        <view class="donowan iconcheck-circle whiteColor successIcon"></view>
+        <view class="xxlSize">{{tip}}</view>
+    </view>
+    <view class="flex w100 header lSize">
+        <view class="orangeTag whiteBgColor orangeColor" catchtap="enterIndex" style="margin-right: 40rpx">返回首页</view>
+        <view class="redTag whiteBgColor redColor" catchtap="enterOrderDetail">查看订单
+        </view>
+    </view>
+</view>
+
+<!-- 商品列表 -->
+<d-commodity-card loading="{{loading}}" complete="{{complete}}" listData="{{commodityData}}" title="猜你喜欢"></d-commodity-card>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "d-order-status":"/component/customComponent/orderStatus/orderStatus",
+    "d-tools":"/component/customComponent/necessaryTools/necessaryTools",
+    "d-user-card":"/component/customComponent/userCard/userCard",
+    "d-cell-user-template":"/component/customComponent/userCellTemplate/userCellTemplate"
+  }
+}

@@ -1,0 +1,15 @@
+<movable-area style="position: fixed;right:0;width:0vw;height:60vh;bottom:260rpx;z-index: 999;">
+    <movable-view direction="all" style="width: 100%" y="10000" x="100">
+        <view class="fixed flex active" catchtap="creatPosterHandle"
+            style="background: {{themeColor}}">
+            <view class="flex" style="flex: 0.9">
+                <view class="icon whiteBgColor">
+                    <text class="donowan iconerweima "></text>
+                    
+                </view>
+                <view class="shareFont">邀请</view>
+            </view>
+        </view>
+    </movable-view>
+
+</movable-area>

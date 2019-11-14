@@ -1,0 +1,131 @@
+<!-- 顶部导航栏 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">商品详情</view>
+</cu-custom>
+
+<import src="../../../template/smallElement/smallElement.wxml" />
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+
+<!-- 回到顶部 -->
+<d-back-top-btn visual="{{visual}}" bottom="{{180}}"></d-back-top-btn>
+
+<!-- 获取手机号码 -->
+<d-dialog title="{{phoneNumberlDialog.title}}" show="{{phoneNumberlDialog.show}}" type="{{phoneNumberlDialog.type}}"
+    src="{{phoneNumberlDialog.src}}" bind:onGetInfoHandle="getPhoneNumber">
+</d-dialog>
+
+<!-- 获取用户信息 -->
+<d-dialog title="{{userInFoDialog.title}}" show="{{userInFoDialog.show}}" type="{{userInFoDialog.type}}"
+    src="{{userInFoDialog.src}}" bind:onGetInfoHandle="getUserInfo"></d-dialog>
+<van-toast id="van-toast" />
+
+<view class="details" style=" height: calc(100vh - {{65 + CustomBar}}px );">
+    <scroll-view scroll-y style="height: 100%;" scroll-into-view="{{anchorPoint}}">
+        <swiper circular="{{true}}" id="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000"
+            duration="1000">
+            <!-- <swiper-item>
+                <image src="{{commodityDetail.sharePic}}" />
+            </swiper-item> -->
+            <swiper-item wx:for="{{commodityDetail.banner}}">
+                <image src="{{item}}" />
+            </swiper-item>
+        </swiper>
+        <view class="flex flexTop commodityTemplate whiteBgColor">
+            <view class="leftContent">
+            </view>
+            <view class="rightContent flex w100">
+                <view class="container">
+                    <view class="title mSize" style="margin: 10rpx 0 20rpx 0">
+                        <view class="{{commodityType==1?'title_tag_icon':commodityType==2?'title_tag_icon_jd':commodityType==3?'title_tag_icon_vph':'title_tag_icon_sn'}}">
+
+                        </view>
+                        {{commodityDetail.goodsName}}
+                    </view>
+                    <view class="flex subTitle mSize flexBetween flexNowrap">
+                        <view class="flex flexStart">
+                            <view class="red lSize flex" style="margin-right: 10rpx">
+                                <view>￥</view>
+                                <view>{{filter.KeepTwoDecimals(commodityDetail.currentPrice)}}</view>
+                            </view>
+                            <view class="delete sSize">￥{{filter.KeepTwoDecimals(commodityDetail.originPrice)}}</view>
+                        </view>
+
+                        <view class="sSize">{{commodityDetail.mallName}}</view>
+
+                    </view>
+                    <view class="flex flexBetween flexNowrap  sSize" style="margin:25rpx 0 15rpx 0">
+                        <view class="mSize flex  whiteColor pinkBgColor" style="padding: 5rpx 20rpx">
+                            <view>补贴</view>
+                            <view class="blank"></view>
+                            <view>￥{{filter.KeepTwoDecimals(commodityDetail.gain)}}</view>
+                        </view>
+                        <view class="subTitle">销量
+                            {{commodityDetail.salesVolume>10000?(filter.KeepTwoDecimals(commodityDetail.salesVolume/10000))+'万':commodityDetail.salesVolume}}
+                            件</view>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+        <view hidden="{{commodityDetail.couponAmount==0}}" class="flex" catchtap="goingBuy">
+            <view class="container">
+                <view class="ticket flex" style="background-size: contain">
+                    <view class="flex sSize whiteColor" style="flex: 1">
+                        <view style="flex: 3" class="flex lSize whiteBgColor flexNowrap ticketContent relative">
+                            <!-- 园点 -->
+                            <view class="absolute left ">
+                                <view class="flex flexCol flexAround" style="height: 100%">
+                                    <view class="redBgColor" style="width: 15rpx;height:15rpx;border-radius: 50%"
+                                        wx:for="12345"></view>
+                                </view>
+
+                            </view>
+                            <!-- 圆点 -->
+                            <view class="absolute right">
+                                <view class="flex flexCol flexAround" style="height: 100%">
+                                    <view class="redBgColor" style="width: 15rpx;height:15rpx;border-radius: 50%"
+                                        wx:for="12345"></view>
+                                </view>
+                            </view>
+                            <view class="flex flexNowrap" style="flex: 3">
+                                <view class="red" style="font-size: 54rpx">
+                                    {{filter.KeepTwoDecimals(commodityDetail.couponAmount)}}</view>
+
+                            </view>
+
+                            <view class="flex flexCol flexTop" style="flex: 5;padding:10rpx">
+                                <view class="flex blackColor bold mSize">
+                                    内部券
+                                </view>
+                                <view class="subTitle sSize" style="margin-top:6rpx">
+                                    {{(commodityDetail.couponStartTime)}}~{{(commodityDetail.couponEndTime)}}
+
+                                </view>
+                            </view>
+
+                        </view>
+
+                        <view class="flex mSize" style="flex:1">
+                            领券
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!-- 商品详情 -->
+        <view class="lSize title flex whiteBgColor" style="margin: 20rpx 0;padding: 20rpx 0;">
+
+            <view style="margin-top: -2rpx">商品详情</view>
+        </view>
+
+        <view class="detailPicture" id="detailPicture">
+            <image mode="widthFix" wx:for="{{commodityDetail.banner }}" src="{{item}}">
+            </image>
+
+        </view>
+    </scroll-view>
+</view>
+<d-goods-action catchawakenHandle="goLogin" catchshareHandle="goLogin" isPhoneNumber="{{isPhoneNumber}}"  bind:goingBuyHandle="goingBuy" shareGain="{{commodityDetail.gain}}"
+    gain="{{commodityType==3?commodityDetail.gain + commodityDetail.originPrice - commodityDetail.currentPrice:commodityDetail.gain + commodityDetail.couponAmount}}" goods_id="{{commodityDetail.goods_id}}">
+</d-goods-action>

@@ -1,0 +1,9 @@
+@import '../common.wxss';
+.item{
+    flex: 1;
+}
+.tabsTitle{
+    height: 80%;
+    width: 80%;
+    border-bottom: 1rpx solid transparent;
+}

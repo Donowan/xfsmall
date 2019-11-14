@@ -1,0 +1,24 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}" isBack="{{false}}" isCustom="{{true}}"></cu-custom>
+
+<!-- 搜索框 -->
+<d-special-search searchType="jump" inputValue="{{inputValue}}">
+    <view slot="search" catchtap="copyText" class="mSize" style="color:#9cbeff;font-weight:600">粘贴</view>
+</d-special-search>
+
+<!-- 历史记录 -->
+<view class="flex">
+    <view class="flex container  mSize flexBetween">
+        <text class="subTitle bold">历史记录</text>
+        <view class="flex" catchtap="removeStorage">
+            <text class="descript donowan iconshanchu" style="margin-right:8rpx"></text>
+            <text class="descript">清空</text>
+        </view>
+    </view>
+</view>
+<view class="flex" class="historyArea">
+    <view class="flex flexStart container">
+        <view data-keyWords="{{item}}" wx:for="{{specialSearchRecord}}" catchtap="enterSearchDetal"
+            class="greyTag textOver textOverThree">{{item}}</view>
+    </view>
+</view>

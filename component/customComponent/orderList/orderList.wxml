@@ -1,0 +1,62 @@
+<wxs src="../../../wxs/filter.wxs" module="filter"></wxs>
+<block wx:if="{{orderList.length!=0}}">
+    <!-- 刷新组件 -->
+    <d-refresh loading="{{refresh}}"></d-refresh>
+    <view class="flex orderList whiteBgColor" catchtap="_enterOrderDetail" wx:for-item="items"
+        wx:key="{{items.order_id}}" data-orderid="{{items.order_id}}" wx:for="{{orderList}}"
+        hidden="{{orderList.length==0}}">
+        <view class="flex w100">
+            <!-- 店铺信息 -->
+            <view class="flex container flexNowrap mSize flexBetween" style="height:90rpx">
+                <view class="flex flexNowrap h100" style="max-width: 80%">
+                    <view class="flex flexCol flexTop h100 flexNowrap w100">
+                        <view class="textOverOne subTitle w100">星风尚自营店</view>
+                        <view class="descript textOverOne sSize w100 orderNumber">订单编号 :
+                            {{items.order_id}}</view>
+                    </view>
+                </view>
+                <view class="redColor mSize">
+                    {{items.order_status==0?'待付款':items.order_status==1?'待发货':items.order_status==2?'待收货':items.order_status==3?'待评价':items.order_status==3?'交易成功':(items.order_status==12)?'售后/维权':(items.order_status==13 || items.order_status==14 || items.order_status==15)?'交易关闭':''}}
+                </view>
+            </view>
+
+            <!-- 订单信息 -->
+            <view class="w100" wx:for="{{items.saas_deal_spus}}" wx:for-item="item" wx:key="{{index}}">
+                <van-card num="{{item.count}}" price="{{filter.KeepTwoDecimals(item.price)}}" desc="{{item.sku_v_name}}"
+                    title="{{item.spu_title}}" thumb="{{item.image}}" />
+            </view>
+            <!-- <view class="redColor dcell flex mSize">查看全部6件商品</view> -->
+            <!-- 合计 -->
+            <view class=" mSize flex flex container flexEnd"
+                style="border-top: 1rpx solid #f1f1f1;padding-top:15rpx;{{(items.order_status==14 || items.order_status==15)?'padding-bottom:15rpx':''}}">
+                <view>合计：</view>
+                <view class="redColor">
+                    ￥{{items.freight*1==0?filter.KeepTwoDecimals(items.total_price):filter.KeepTwoDecimals(1*(filter.KeepTwoDecimals(items.total_price)) +1*(filter.KeepTwoDecimals(items.freight))) }}
+                </view>
+            </view>
+
+            <!-- 订单操作条 -->
+            <view style="width:100vw">
+                <d-operation-order orderDetail="{{items}}"></d-operation-order>
+            </view>
+
+        </view>
+    </view>
+    <!-- 加载组件 -->
+    <d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>
+</block>
+
+
+
+<!-- 购物车为空的情况 -->
+<view hidden="{{orderList.length!=0}}">
+    <view class="cartEmpty flex flexAround">
+        <view class="icon">
+            <image src="{{baseImgUrl}}/cartEmpty.png" mode="aspectFit"></image>
+        </view>
+        <view class="flex flexCol">
+            <view class="title">暂时没有相关订单哦</view>
+            <view class="descript" style="margin-top:15rpx">快给我挑一些商品吧</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+<view>
+    <view class="flex greyBgColor" hidden="{{!loading}}" style="height: 260rpx">
+        <van-loading type="circular" color="#e42222" size="100rpx" />
+        <view class="red sSize" style="margin-left: 20rpx">  加载中...</view>
+    </view>  
+    <view hidden="{{!complete}}" class="sSize dcell" style="text-align: center">已经到底了哦~~</view>  
+</view>

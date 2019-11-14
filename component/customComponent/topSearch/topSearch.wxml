@@ -1,0 +1,9 @@
+<view class="flex topArea my-class" catchtap="jumpSearch" style="background-color: {{color}}">
+    <view class="container">
+        <view class="flex flexAround topSearch subTitle" style="{{styles}}">
+            <text class="donowan iconsearch lSize"></text>
+            <text class="mSize textOverOne">{{placeHolder}}</text>
+            <slot></slot>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+<scroll-view scroll-x style="{{'height:'+tabsHeight+'rpx'}}">
+    <view class="tabs flex whiteBgColor">
+        <view class="item flex title mSize" wx:key="{{index}}" style="{{'height:'+(tabsHeight-1)+'rpx'}}" data-index="{{index}}" wx:for="{{tabs}}" catchtap="changeIndex">
+            <view class="flex tabsTitle" style="{{index == curreyActive?styles:''}}">{{item}}</view>
+        </view>
+    </view>
+</scroll-view>

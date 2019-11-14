@@ -1,0 +1,24 @@
+<view class="cu-modal bottom-modal {{show?'show':''}}" catchtap="_hideModal">
+    <view class="cu-dialog relative" catchtap="_preventHide">
+
+        <!-- 分享actionSheet -->
+        <view class="greyBgColor lSize themeColor">
+            <block wx:for="{{list}}" wx:Key="{{index}}">
+                <view wx:if="{{!item.openType}}" class="dcell flex  whiteBgColor" style="color:{{item.color?item.color:'#000'}}" catchtap="_hideModal"
+                    data-index="{{index}}">
+                    {{item.title}}
+                </view>
+                <!-- openType为微信开放能力 -->
+                <button wx:if="{{item.openType}}" class="dcell flex  lSize whiteBgColor themeColor"
+                    catchtap="_hideModal" style="color:{{item.color?item.color:'#000'}}"  open-type="share" data-index="{{index}}">
+                    {{item.title}}
+                </button>
+            </block>
+            <view style="height: 30rpx"></view>
+            <view wx:if="{{showCancel.show}}" class="dcell whiteBgColor flex title" style="color:{{showCancel.color?showCancel.color:''}}" catchtap="_hideModal">
+                取消
+            </view>
+        </view>
+
+    </view>
+</view>

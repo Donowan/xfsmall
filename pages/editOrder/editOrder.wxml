@@ -1,0 +1,109 @@
+<import src="../../template/element/element" />
+
+<wxs src="../../wxs/filter.wxs" module="filter"></wxs>
+
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}" isBack="{{false}}" isCustom="{{true}}"></cu-custom>
+
+<!-- 选择收货地址 -->
+<view class="flex header whiteBgColor" catchtap="enterAddAddress" wx:if="{{!address}}">
+    <view class="flex container h100 flexNowrap">
+        <view class="donowan icondizhiguanli greenColor" style="font-size: 60rpx"></view>
+        <view class="padding-x subTitle" style="flex: 1">选择收货地址</view>
+        <view class="donowan iconright xlSize descript"></view>
+    </view>
+</view>
+
+<!-- <view class="flex header whiteBgColor" catchtap="enterChooseAddress" wx:if="{{address}}">
+    <view class="flex container h100 flexNowrap">
+        <view class="donowan iconicon-test descript" style="font-size: 30rpx"></view>
+        <view class="padding-x subTitle flex flexCol  h100" style="flex: 1">
+           <view class="bold mSize flex flexBetween w100">
+               <view style="max-width: 60vw">收货人:{{address.name}}</view>
+               <view>{{address.tel}}</view>
+           </view>
+           <view style="font-size: 20rpx;margin-top: 10rpx" class="w100 left textOver descript textOverTwo">收货地址:{{filter.join(address.area,'')+address.address}}</view>
+        </view>
+        <view class="donowan iconright xlSize descript"></view>
+    </view>
+</view> -->
+<view catchtap="enterChooseAddress" wx:if="{{address}}">
+    <template is="address" data="{{...address}}"></template>
+</view>
+
+
+<!-- 分割线 -->
+<template is="splitLine"></template>
+
+
+<!-- 店铺名 -->
+<template is="shopName"></template>
+
+<!-- 订单列表 -->
+<view class="flex whiteBgColor" style="padding: 10rpx 0;margin-top: 10rpx" wx:for="{{orderListData}}" wx:key="{{items.goods_id}}" wx:for-item="items">
+    <view class="flex container">
+        <view class="w100" style="margin: 10rpx 0" wx:for="{{items.cart}}"  wx:key="{{item.sku_id}}" wx:for-item="item"> 
+            <van-card num="{{item.cartNum}}" price="{{filter.KeepTwoDecimals(item.price)}}" desc="{{filter.join(item.specification,',')}}" title="{{item.title}}"
+                thumb="{{item.src}}" />
+        </view>
+    </view>
+</view>
+
+<!-- 优惠 -->
+<!-- <view class="flex whiteBgColor dcell mSize" style="margin: 10rpx 0">
+    <view class="flex container h100 flexNowrap">
+        <view class="padding-x subTitle" style="flex: 1">优惠</view>
+        <view class="subTitle">{{formData.couponType}}</view>
+        <view class="donowan iconright xlSize descript"></view>
+    </view>
+</view> -->
+
+<!-- 配送方式 -->
+<!-- <view class="flex whiteBgColor dcell mSize" style="margin: 10rpx 0">
+    <view class="flex container h100 flexNowrap">
+        <view class="padding-x subTitle" style="flex: 1">配送方式</view>
+        <view class="subTitle">快递免费运费</view>
+    </view>
+</view> -->
+<template is="transMode"></template>
+
+<!-- 买家留言 -->
+<view class="flex whiteBgColor header mSize" style="margin: 10rpx 0">
+    <view class="flex container h100 flexNowrap">
+        <view class="padding-x subTitle" style="width:160rpx">买家留言</view>
+        <textarea bindinput="changeTextarea" placeholder="留言建议50字以内" catch maxlength="50" value="{{formData.message}}" class="descript" style="flex: 1;height: 60%;line-height: 30rpx"></textarea>
+    </view>
+</view>
+
+
+<!-- 商品金额 -->
+<!-- <view class="flex flexCol flexNowrap whiteBgColor mSize" style="margin: 10rpx 0;">
+    <view class="flex container dcell flexNowrap sSize">
+        <view class="padding-x subTitle " style="flex: 1">商品金额</view>
+        <view class="subTitle">￥100.00</view>
+    </view>
+    <view class="flex container dcell flexNowrap sSize">
+        <view class="padding-x subTitle " style="flex: 1">运费</view>
+        <view class="subTitle">￥0.00</view>
+    </view>
+    <view class="container flex flexEnd header" style="border-top: 1rpx solid #f1f1f1">
+        <view class="flex">
+            <view>合计：</view>
+            <view class="orangeColor lSize">100.00</view>
+        </view>
+    </view>
+</view> -->
+
+<template is="totalPrice" data="{{...calPrice}}"></template>
+
+<!-- 占位符 -->
+<view style="height: 100rpx"></view>
+
+<!-- 提交栏 -->
+<view class="flex submitOrder whiteBgColor flexNowrap">
+    <view class="flex flexEnd padding-xx lSize" style="flex: 1">
+        <view class="flex ">合计 ：</view>
+        <view class="orangeColor">￥{{filter.KeepTwoDecimals(calPrice.total_price + calPrice.freight)}}</view>
+    </view>
+    <view class="whiteColor lSize redBgColor h100 flex" catchtap="submitOrder" style="width: 200rpx">提交订单</view>
+</view>

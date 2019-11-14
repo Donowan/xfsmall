@@ -1,0 +1,18 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}" isBack="{{false}}" isCustom="{{true}}"></cu-custom>
+
+<view class="flex whiteBgColor" style="margin: 10rpx 0">
+    <view class="bold lSize flexStart dcell flex  container" >
+        分类
+    </view>
+</view>
+<view class="cu-list grid col-5 ">
+    <view class="cu-item" wx:for="{{iconList}}">
+        <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+            <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+                <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+            </view>
+        </view>
+        <text>{{item.name}}</text>
+    </view>
+</view>

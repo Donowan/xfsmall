@@ -1,0 +1,30 @@
+@import './component/customComponent/common.wxss';
+@import './component/colorui/main.wxss';
+@import './component/colorui/icon.wxss';
+ /* 主题色 */
+page{
+    background: rgb(245, 245, 250)
+    /* 换肤暂采用改变背景url实现.. (通过后台改变图片)*/
+}
+/* 重置按钮样式 */
+button::after{
+    border: none;
+}
+button{
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    background: none;
+    font-size: 10rpx;
+}
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+image{
+    width: 100%;
+    height: 100%;
+    display: block;
+}

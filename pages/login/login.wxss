@@ -1,0 +1,4 @@
+@import '../../component/customComponent/dialog/dialog.wxss';
+.dialog .content{
+    top: 50%;
+}

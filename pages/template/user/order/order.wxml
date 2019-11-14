@@ -1,0 +1,18 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">我的订单</view>
+</cu-custom>
+
+<!-- 列表导航 -->
+<d-label-navigation tabsHeight="90" curreyActive="{{curreyActive}}" catchonchange="changeCurreyActive"
+        tabs="{{['全部','已付款','已结算','已失效']}}"></d-label-navigation>
+<view>
+    <!-- 刷新组件 -->
+    <d-refresh loading="{{refresh}}" complete="{{complete}}"></d-refresh>
+    <d-template-order-list orderListData="{{orderListData}}"></d-template-order-list>
+    <!-- 加载组件 -->
+    <d-loading loading="{{loading}}" complete="{{complete}}"></d-loading>
+</view>
+
+<!-- 回到顶部 -->
+<d-back-top-btn visual="{{visual}}" bottom="110"></d-back-top-btn>

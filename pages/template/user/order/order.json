@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "d-template-order-list":"/component/customComponent/templateOrderList/templateOrderList",
+    "d-label-navigation":"/component/customComponent/labelNavigation/labelNavigation"
+  }
+}

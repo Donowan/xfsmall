@@ -1,0 +1,34 @@
+<view class="relative">
+    <view class="greyBgColor" style="padding: 10rpx 0 0 0">
+        <view class="whiteBgColor  flex sort">
+            <view  class="container flex sSize flexBetween title" style="height: 100%">
+                <view style="padding: 0 50rpx 0 0;margin-left: 20rpx"  class="flex  sortItem {{menuIndex=='0'?'orangeColor':''}}" catchtap="changeMenuIndex" data-index="0">
+                    <view>{{subsidyItem[subsidyMenuIndex]}}</view>
+                    <view class="triangular"></view>
+                </view>
+                <!-- <view style="flex:1" class="flex  sortItem {{menuIndex=='1'?'orangeColor':''}}" catchtap="changeMenuIndex" data-index="1">
+                    {{salesVolume}}
+                </view> -->
+                <view class="flex  sortItem {{menuIndex=='2'?'orangeColor':''}}" catchtap="changeMenuIndex" data-index="2">
+                    <view>{{coupon}}</view>
+                    <van-switch class="switch" checked="{{ checked }}"  size="20px"/>
+                </view>
+            </view>
+
+        </view>
+    </view>
+    <view wx:if="{{showDialog}}" class="sortDialog dialogBgColor absolute">
+        <scroll-view scroll-y style="height: 100%;" bindscrolltolower="lower">
+            <view class="whiteBgColor flex title " style="opacity:1">
+                <view wx:for="{{subsidyItem}}" 
+                    catchtap="changesubsidyMenuIndex"
+                    wx:key="{{index}}" 
+                    data-index="{{index}}"
+                    class="flex container flex flexStart whiteBgColor subsidyItem sSize {{index == subsidyMenuIndex?'orangeColor':''}}">
+                    {{item}}
+                </view>
+            </view>
+
+        </scroll-view>
+    </view>
+</view>

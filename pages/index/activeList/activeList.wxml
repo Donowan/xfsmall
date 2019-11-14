@@ -1,0 +1,26 @@
+<!-- 自定义顶部 -->
+<cu-custom bgImage="{{bgImage}}">
+    <view slot="content">{{pageTitle}}</view>
+</cu-custom>
+
+<!-- 获取用户信息 -->
+<d-dialog title="{{userInFoDialog.title}}" show="{{userInFoDialog.show}}" type="{{userInFoDialog.type}}"
+    bind:onGetInfoHandle="getUserInfo"></d-dialog>
+
+<!-- 获取手机号码 -->
+<d-dialog title="{{phoneNumberlDialog.title}}" show="{{phoneNumberlDialog.show}}" type="{{phoneNumberlDialog.type}}"
+    bind:onGetInfoHandle="getPhoneNumber"></d-dialog>
+
+<!-- 回到顶部 -->
+<d-back-top-btn visual="{{visual}}" bottom="150"></d-back-top-btn>
+
+<view class="flex topArea" style="position: sticky;top:{{CustomBar}}px;z-index: 100">
+    <!-- 搜索框组件 -->
+    <!-- <d-search catchsearchHandle="getSearchCommodity" ></d-search> -->
+    <d-top-search color="white"></d-top-search>
+</view>
+<!--筛选组件 -->
+<!-- <d-sort catchfilterHandle="filter"></d-sort> -->
+<d-commodity-card catchawakenHandle="awaken" catchshowModalForAddCartHandle="showModalForAddCart" loading="{{loading}}" complete="{{complete}}"
+    listData="{{commodityData}}" layOut="col">
+</d-commodity-card>

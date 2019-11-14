@@ -1,0 +1,4 @@
+@import '/template/commodityDetail/commodityDetail.wxss';
+.commodity{
+    padding-bottom: 90rpx;
+}

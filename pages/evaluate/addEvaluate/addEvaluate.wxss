@@ -1,0 +1,39 @@
+@import '../../../template/element/element.wxss';
+/* 重置星星样式 */
+.allAtars{
+    width:40vw;
+    justify-content: space-between;
+}
+.oneStar{
+    width:45rpx;
+    height: 45rpx;
+}
+
+.bg-img{
+    border: 1rpx solid #f1f1f1;
+}
+/* .solids{
+    border-color: #f1f1f1;
+} */
+.evaluate{
+    margin:20rpx 0;
+    border-radius: 30rpx;
+    overflow: hidden;
+}
+.evaluateHeader .icon{
+    width:80rpx;
+    height: 80rpx;
+    border-radius: 15rpx;
+}
+.cu-bar .action{
+    margin-bottom: 10rpx;
+}
+.submitEvaluate{
+    margin-top: 30rpx;
+    height: 100rpx;
+    letter-spacing: 15rpx;
+}
+.canvas{
+    width:140rpx;
+    height:140rpx
+}

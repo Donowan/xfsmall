@@ -1,0 +1,11 @@
+<view class="flex">
+    <view class="container userList">
+        <view wx:for="{{template}}" wx:key="{{item.id}}" class="flex whiteBgColor dcell mSize" catchtap="_enterUserBranch" style="margin: 5rpx 0" data-branch="{{item.branch}}">
+            <view class="flex container h100 flexNowrap">
+                <view class="donowan redColor {{item.prevIconName}}" style="font-size: 50rpx;width: 55rpx;"></view>
+                <view class="padding-xx lSize subTitle textOverOne" style="flex:1;">{{item.branchName}}</view>
+                <view class="donowan xxlSize descript {{item.nextIconName}}"></view>
+            </view>
+        </view>
+    </view>
+</view>

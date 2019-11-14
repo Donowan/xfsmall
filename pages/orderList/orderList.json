@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "d-order-list":"/component/customComponent/orderList/orderList"
+  }
+}
