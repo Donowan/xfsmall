@@ -35,11 +35,11 @@
                                 </view>
                         </view>
                         <!-- 商品信息 -->
-                        <view wx:if="{{haveCommodityCard}}" class="margin-top" data-id="{{item.hss_deal_spu.spu_id}}" catchtap="_enterCommodityDetail">
-                                <van-card num="{{item.hss_deal_spu.count}}"
-                                        price="{{filter.KeepTwoDecimals(item.hss_deal_spu.price)}}"
-                                        desc="{{item.hss_deal_spu.sku_v_name}}" title="{{item.hss_deal_spu.spu_title}}"
-                                        thumb="{{item.hss_deal_spu.image}}" />
+                        <view wx:if="{{haveCommodityCard}}" class="margin-top" data-id="{{item.saas_deal_spu.spu_id}}" catchtap="_enterCommodityDetail">
+                                <van-card num="{{item.saas_deal_spu.count}}"
+                                        price="{{filter.KeepTwoDecimals(item.saas_deal_spu.price)}}"
+                                        desc="{{item.saas_deal_spu.sku_v_name}}" title="{{item.saas_deal_spu.spu_title}}"
+                                        thumb="{{item.saas_deal_spu.image}}" />
                         </view>
                         <view class="dcell"></view>
                 </view>

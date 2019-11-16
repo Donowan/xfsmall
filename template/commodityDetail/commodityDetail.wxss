@@ -3,7 +3,7 @@
 }
 .swiperTemplate{
     width: 100vw;
-    height:80vw;
+    height:100vw;
 }
 .swiperTemplate .swiper{
     width: 100%;

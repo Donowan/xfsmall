@@ -273,14 +273,16 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    // let requestQuene = [get_image_data(1), get_image_data(2), get_all_template(), get_goods_data('', this.data.page)];
-    let requestQuene = [get_all_template(), get_goods_data('', this.data.page)];
-    Promise.all(requestQuene).then(res => {
-      console.log(res)
-      let swiperList = setSwiperData(res[0].swiperList);
-      let iconList = setIconListData(res[0].iconList);
-      let commodityData = res[0].commodityData.map((_item) => {
+  onShow:  function () {
+    get_all_template().then(res => {
+      console.log('111111111');
+      console.log(res);
+      // 处理轮播数据
+      let swiperList = setSwiperData(res.swiperList);
+      // 处理icon数据
+      let iconList = setIconListData(res.iconList);
+      // 处理商品列表数据
+      let commodityData = res.commodityData.map((_item) => {
         return {
           model: {
             id: _item.id,
@@ -290,32 +292,81 @@ Page({
           data: setCommodity(_item.spu_info)
         }
       })
-
-      let allCommodity = setCommodity(res[1].rows);
-      let _allCommodity = `allCommodity[0].data`
       this.setData({
         swiperList,
         iconList,
         commodityData,
+      })
+    }).catch(err => {
+      this.setData({
+        swiperList:[],
+        iconList:[],
+        commodityData:[]
+      })
+    });
+    get_goods_data('', this.data.page).then(res => {
+      let allCommodity = setCommodity(res.rows);
+      let _allCommodity = `allCommodity[0].data`
+      this.setData({
         [_allCommodity]: allCommodity
       })
     }).catch(err => {
-      console.log(err)
+      let _allCommodity = `allCommodity[0].data`;
+      this.setData({
+        [_allCommodity]:[]
+      })
     });
+    // let requestQuene = [get_image_data(1), get_image_data(2), get_all_template(), get_goods_data('', this.data.page)];
+    // let requestQuene = [get_all_template(), get_goods_data('', this.data.page)];
+    // Promise.all(requestQuene).then(res => {
+    //   console.log('111111111');
+    //   console.log(res)
+    //   let swiperList = setSwiperData(res[0].swiperList);
+    //   let iconList = setIconListData(res[0].iconList);
+    //   let commodityData = res[0].commodityData.map((_item) => {
+    //     return {
+    //       model: {
+    //         id: _item.id,
+    //         short_title: _item.title,
+    //         image: _item.img_url
+    //       },
+    //       data: setCommodity(_item.spu_info)
+    //     }
+    //   })
+
+    //   let allCommodity = setCommodity(res[1].rows);
+    //   let _allCommodity = `allCommodity[0].data`
+    //   this.setData({
+    //     swiperList,
+    //     iconList,
+    //     commodityData,
+    //     [_allCommodity]: allCommodity
+    //   })
+    // }).catch(err => {
+    //   let _allCommodity = `allCommodity[0].data`;
+    //   this.setData({
+    //     swiperList:[],
+    //     iconList:[],
+    //     commodityData:[],
+    //     [_allCommodity]:[]
+    //   })
+    // });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
-  },
+    this.setData({
+      page:1
+    })
+  },  
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**

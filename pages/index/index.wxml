@@ -38,7 +38,9 @@
 
 
 <!-- 分类列表 -->
-<d-category-list iconList="{{iconList}}"></d-category-list>
+<view wx:if="{{iconList.leng}}">
+    <d-category-list iconList="{{iconList}}"></d-category-list>
+</view>
 
 <!-- 商品列表 -->
 <view wx:for="{{commodityData}}" wx:key="{{item.model.id}}">

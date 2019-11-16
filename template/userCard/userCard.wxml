@@ -14,8 +14,8 @@
                                 <!-- <open-data type="userNickName"></open-data> -->
                                 {{user_name}}
                             </rich-text>
-                            <view>
-                                等级：{{level==0?'游客':level==1?'会员':level==2?'区级代理':level==3?"市级代理":''}}
+                            <view style="width: 160rpx;height: 40rpx;">
+                                <image src="https://cdn.hssapp.com.cn/saas/level{{level==0?0:level==1?1:level==2?2:level==3?3:3}}.png"></image>
                             </view>
                         </view>
                         <view class="w100">绑定手机号： {{phone}}</view>

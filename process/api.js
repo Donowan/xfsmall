@@ -122,6 +122,8 @@ export const get_goods_data = (data = '', page = 1) => {
             console.log(res)
             if (!data) {
                 let length = res.rows.length;
+
+                // 后期搜索出问题切换if判断条件
                 if (length > 0) {
                     resolve(res)
                 } else {

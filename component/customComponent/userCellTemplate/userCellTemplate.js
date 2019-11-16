@@ -54,13 +54,13 @@ Component({
         //   branchName:'我的收益',
         //   branch:'income'
         // },
-        {
-          id: 5,
-          prevIconName: 'iconfenxiaozhongxin',
-          nextIconName: 'iconright',
-          branchName: '分销中心',
-          branch: 'distribution'
-        },
+        // {
+        //   id: 5,
+        //   prevIconName: 'iconfenxiaozhongxin',
+        //   nextIconName: 'iconright',
+        //   branchName: '分销中心',
+        //   branch: 'distribution'
+        // },
         {
           id: 6,
           prevIconName: 'iconbangzhuguanyuwomen',

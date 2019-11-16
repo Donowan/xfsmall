@@ -48,8 +48,8 @@ Page({
     },()=>{
       let quene = [get_template_category(this.data.options.type),get_template_category_data(this.data.id,this.data.options.type,this.data.page),get_search_template_commodity('护肤',this.data.options.type,this.data.page)];
       Promise.all(quene).then(res=>{ 
-        let commodityData = setTemplateCommodity(res[1]);
-        let swiper = setTemplateCommodity(res[2].list,Number(this.data.options.type)-1).slice(-4);
+        let commodityData = setTemplateCommodity(res[1],Number(this.data.options.type));
+        let swiper = setTemplateCommodity(res[2].list,Number(this.data.options.type)).slice(-4);
         console.log(swiper)
         this.setData({
           commodityData,
@@ -87,7 +87,7 @@ Page({
       VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
     },()=>{
       get_template_category_data(this.data.id,this.data.options.type,this.data.page).then(res=>{
-        let commodityData = setTemplateCommodity(res);
+        let commodityData = setTemplateCommodity(res,Number(this.data.options.type));
         this.setData({
           commodityData
         },()=>{
@@ -150,6 +150,7 @@ Page({
     jump.jump_template_commodity_detail(`goods_id=${goods_id}&type=${Number(this.data.options.type) - 1}`)
   },
   _lower(){
+    console.log(Number(this.data.options.type));
     lower({
       _this: this,//this
       request: get_template_category_data,//调用api
@@ -157,7 +158,7 @@ Page({
       key: 'commodityData',//处理的数据key值
       fn: setTemplateCommodity,//需要某种函数进行处理
       rows:''
-    });
+    },Number(this.data.options.type));
   },
   toTop(e){
     this.setData({

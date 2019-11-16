@@ -3,26 +3,30 @@ import { storage ,setAddressData} from './process/data';
 import path from './config/env';
 const {IMG_HOST} = path;
 /**
- * 
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  *  commodityType//平台类型
+ * 接口:2345
+ * 页面路由：01234
+ * 处理数据 setTemplateCommodity 2345   setTemplateCommodityDetail 1234
  * 0 sass
- * 1 拼多多  
- * 2 京东
- * 3 唯品会
- * 4 苏宁
+ * 1 /2拼多多  
+ * 2 /3京东
+ * 3 /4唯品会
+ * 4 /5苏宁
  * 
+ * 接口 + 1！！！！！！！！
  */
 App({
   globalData: {
     userAddress:'',//用户选择收货地址
     checkId:'',//用户选择收货地址id
-    isConnected: true,
+    isConnected: true,//网络连接
     commodityType:1,//平台类型
-    clientInfo:'',
+    clientInfo:'',//设备信息
     session_key:'',
-    baseImgUrl:IMG_HOST,
+    baseImgUrl:IMG_HOST,//图片域名
     openid:'',
-    p_id:'',
+    p_id:'',//绑定id
     StatusBar:'',
     Custom:'',
     CustomBar:'',
@@ -109,11 +113,12 @@ App({
 
 
     // 检测内存溢出
-    wx.onMemoryWarning(function () {
-      wx.showModal({
-        title: '提示',
-        content: '微信内存不足，为了更好使用,请重新进入',
-      })
+    wx.onMemoryWarning(function (e) {
+      console.log(e);
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '微信内存不足，为了更好使用,请重新进入',
+      // })
     })
     // 检测新版本
     if (wx.canIUse('getUpdateManager')) {

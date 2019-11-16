@@ -114,7 +114,8 @@ Page({
         personalCardData:{
           headimgurl: wx.getStorageSync('cpsUserInfo').headimgurl,
           nickname:wx.getStorageSync('cpsUserInfo').nickname,
-          phoneNum:wx.getStorageSync('cpsUserInfo').phone
+          phoneNum:wx.getStorageSync('cpsUserInfo').phone,
+          level:wx.getStorageSync('cpsUserInfo').level,
         },
         incomeCardData:{...wx.getStorageSync('cpsUserInfo').evaluat,...this.data.incomeCardData}
       })

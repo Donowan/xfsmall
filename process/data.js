@@ -42,7 +42,7 @@ export const chooseImage = (count = 4) => {
 
 // 加载更多函数
 // 页面this指向，request请求api，array参数数组，key处理数据的键值，使用fn处理key作为键值的函数
-export const lower = (params) => {
+export const lower = (params,type) => {
     let {
         _this,
         request,
@@ -58,9 +58,10 @@ export const lower = (params) => {
     }, () => {
 
         request(...array, _this.data.page).then(res => {
+           
             let _rows = rows == '' ? [...res] : res[rows];
-            let allCommodity = fn ? fn(_rows) : _rows;
-            let curreyCommodity = [..._this.data[key], ...allCommodity];
+            let allCommodity = fn ? type?fn(_rows,type):fn(_rows) : _rows;
+            let curreyCommodity = [..._this.data[key], ...allCommodity]; 
             _this.setData({
                 loading: false,
                 [key]: curreyCommodity,
@@ -697,7 +698,7 @@ export const concatObj = (arr, key, option, deconstruct = true) => {
 export const setCartData = (data) => {
     return data.rows.map(items => {
         let _items = items.sku_v_info;
-        return {
+        return _items?{
             goods_id: _items.spu_id,
             cart: [items].map(item => {
                 return {
@@ -715,7 +716,10 @@ export const setCartData = (data) => {
                     // }),
                 }
             })
-        }
+        }:null
+    }).filter(items=>{
+        // 过滤掉sku_v_info为null的购物车数据
+        return items!=null
     })
 }
 
@@ -832,7 +836,7 @@ export const setTemplateSwiper = (data) => {
 }
 
 // 处理商品数据
-export const setTemplateCommodity = (data, type = 1) => {
+export const setTemplateCommodity = (data, type = 2) => {
     const KeepTwoDecimals = (num) => {
         var ten = Math.pow(10, 2);
         num = num * 1 + 0.0000001;

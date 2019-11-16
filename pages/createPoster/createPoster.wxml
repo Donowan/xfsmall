@@ -68,7 +68,7 @@
                     bindopensetting="openSetting">保存图片</button>
                 <button wx:if="{{writePhotosAlbum}}" class="whiteColor mSize orangeBgColor"
                     catch:tap="saveMiniProgramPoster">保存图片</button>
-                <button class="redBgColor mSize whiteColor" open-type='share' catch:tap="inviteFriends">邀请好友</button>
+                <button class="redBgColor mSize whiteColor" open-type='share' catch:tap="inviteFriends">发给好友</button>
             </view>
         </view>
     </view>
@@ -85,8 +85,8 @@
                         bindopensetting="openSetting">保存图片</button>
                     <button wx:if="{{writePhotosAlbum}}" class="whiteColor mSize orangeBgColor"
                         catch:tap="savePoster">保存图片</button>
-                    <button wx:if="{{invite}}" class="redBgColor mSize whiteColor" open-type='share'>邀请好友</button>
-                    <button wx:if="{{!invite}}" class="redBgColor mSize whiteColor">邀请好友</button>
+                    <button wx:if="{{invite}}" class="redBgColor mSize whiteColor" open-type='share'>发给好友</button>
+                    <button wx:if="{{!invite}}" class="redBgColor mSize whiteColor">发给好友</button>
                 </view>
             </view>
 

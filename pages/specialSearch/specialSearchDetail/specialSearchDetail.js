@@ -90,7 +90,7 @@ Page({
     _request = get_search_template_commodity(options.keyWords, _type, this.data.page);
     _request.then(res => {
       console.log(res.list);
-      let commodityData = setTemplateCommodity(res.list);
+      let commodityData = setTemplateCommodity(res.list,_type);
       this.setData({
         commodityData
       })
@@ -109,7 +109,7 @@ Page({
     }, () => {
       let _type = this.data.curreyActive == 0 ? 2 : this.data.curreyActive == 1 ? 3 : this.data.curreyActive == 2 ? 4 : this.data.curreyActive == 3 ? 5 : '';
       get_search_template_commodity(this.data.keyWords, _type, this.data.page).then(res => {
-        let commodityData = setTemplateCommodity(res.list);
+        let commodityData = setTemplateCommodity(res.list,_type);
         this.setData({
           commodityData
         })
@@ -211,7 +211,7 @@ Page({
       key: 'commodityData',//处理的数据key值
       fn: setTemplateCommodity,//需要某种函数进行处理
       rows:'list'
-    });
+    },this.data.curreyActive + 2);
   },
 
   /**
